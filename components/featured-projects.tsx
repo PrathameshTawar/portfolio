@@ -1,7 +1,8 @@
 "use client"
 
 import React from "react"
-import { ExternalLink, Github, Layers, ArrowUpRight, CheckCircle2, TrendingUp, Cpu, Database } from "lucide-react"
+import { ExternalLink, Layers, ArrowUpRight, CheckCircle2, TrendingUp, Cpu, Database } from "lucide-react"
+import { GithubIcon } from "@/components/icons"
 
 interface Project {
   title: string
@@ -106,7 +107,7 @@ export default function FeaturedProjects() {
                     aria-label={`GitHub repository for ${project.title}`}
                     className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted/80 rounded-lg transition-colors"
                   >
-                    <Github className="w-4 h-4" />
+                    <GithubIcon className="w-4 h-4" />
                   </a>
                   {project.liveDemoUrl && (
                     <a
