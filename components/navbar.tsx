@@ -1,12 +1,13 @@
 "use client"
 
 import React, { useState, useEffect } from "react"
-import { Mail, Menu, X, Terminal, Cpu } from "lucide-react"
+import { Menu, X, Moon, Sparkles, Terminal } from "lucide-react"
 import { GithubIcon, LinkedinIcon } from "@/components/icons"
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState("cover")
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,131 +18,99 @@ export default function Navbar() {
   }, [])
 
   const navLinks = [
-    { name: "Projects", href: "#projects" },
-    { name: "Proof of Work", href: "#proof-of-work" },
-    { name: "Experience", href: "#experience" },
-    { name: "Skills", href: "#skills" },
-    { name: "Terminal", href: "#terminal" },
-    { name: "Contact", href: "#contact" },
+    { id: "cover", name: "COVER", href: "#hero" },
+    { id: "projects", name: "PROJECTS", href: "#projects" },
+    { id: "vault", name: "VAULT", href: "#proof-of-work" },
+    { id: "experience", name: "WORK", href: "#experience" },
+    { id: "skills", name: "STACK", href: "#skills" },
+    { id: "terminal", name: "CLI", href: "#terminal" },
+    { id: "contact", name: "CONTACT", href: "#contact" },
   ]
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border shadow-lg shadow-black/20"
-          : "bg-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/30 flex items-center justify-center text-primary group-hover:scale-105 group-hover:border-primary transition-all">
-              <Cpu className="w-5 h-5" />
-            </div>
-            <div>
-              <span className="font-bold text-base tracking-tight text-foreground group-hover:text-primary transition-colors">
-                Prathamesh Tawar
-              </span>
-              <span className="hidden sm:inline-block ml-2 text-xs font-mono px-2 py-0.5 rounded-full bg-primary/10 text-primary border border-primary/20">
-                AI & Full-Stack
-              </span>
-            </div>
-          </a>
+    <header className="fixed top-0 left-0 right-0 z-50">
+      {/* Top brand header bar matching reference image */}
+      <div className="w-full bg-[#080c18]/90 backdrop-blur-md border-b border-[#182238] flex items-center justify-between px-4 sm:px-8 py-2">
+        {/* Top-left electric blue curved badge */}
+        <a
+          href="#"
+          className="inline-flex items-center px-4 py-1.5 rounded-br-2xl rounded-tl-lg bg-[#2f6bf6] text-white font-black text-sm tracking-widest shadow-md shadow-[#2f6bf6]/30 hover:brightness-110 transition-all"
+        >
+          <span>PORTFOLIO®</span>
+        </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
-            {navLinks.map((link) => (
+        {/* Center floating capsule nav bar */}
+        <nav className="hidden lg:flex items-center gap-1.5 bg-[#0e1628]/90 border border-[#1e2a47] rounded-full px-3 py-1 shadow-lg shadow-black/40">
+          <span className="text-[11px] font-mono text-[#2f6bf6] font-bold px-2">01 <span className="text-muted-foreground/60">/ 07</span></span>
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.id
+            return (
               <a
                 key={link.name}
                 href={link.href}
-                className="px-3.5 py-1.5 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-colors"
+                onClick={() => setActiveSection(link.id)}
+                className={`px-3 py-1 text-xs font-mono tracking-wider font-semibold rounded-full transition-all ${
+                  isActive
+                    ? "bg-[#2f6bf6] text-white shadow-sm shadow-[#2f6bf6]/40"
+                    : "text-muted-foreground hover:text-white hover:bg-white/5"
+                }`}
               >
                 {link.name}
               </a>
-            ))}
-          </nav>
-
-          {/* Action buttons */}
-          <div className="hidden sm:flex items-center gap-2">
-            <a
-              href="https://github.com/PrathameshTawar"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub Profile"
-              className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted/60 rounded-lg transition-colors"
-            >
-              <GithubIcon className="w-4 h-4" />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn Profile"
-              className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted/60 rounded-lg transition-colors"
-            >
-              <LinkedinIcon className="w-4 h-4" />
-            </a>
-            <a
-              href="mailto:tawareprathamesh1010@gmail.com"
-              className="ml-2 inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors shadow-sm shadow-primary/20"
-            >
-              <Mail className="w-3.5 h-3.5" />
-              <span>Hire Me</span>
-            </a>
+            )
+          })}
+          <div className="pl-1 text-muted-foreground/80 hover:text-white cursor-pointer p-1">
+            <Moon className="w-3.5 h-3.5" />
           </div>
+        </nav>
 
-          {/* Mobile hamburger */}
-          <div className="flex md:hidden">
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted focus:outline-none"
-              aria-label="Toggle menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
+        {/* Top-right engineering tags */}
+        <div className="hidden sm:flex items-center gap-3 text-xs font-mono text-muted-foreground">
+          <span className="hover:text-[#2f6bf6] transition-colors cursor-default">AI ORCHESTRATION</span>
+          <span className="text-border">|</span>
+          <span className="hover:text-[#22c55e] transition-colors cursor-default">DISTRIBUTED SYSTEMS</span>
+          <span className="text-border">|</span>
+          <span className="hover:text-[#ff5a36] transition-colors cursor-default">FULL-STACK</span>
+        </div>
+
+        {/* Mobile menu button */}
+        <div className="flex lg:hidden">
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-1.5 rounded-lg bg-[#0e1628] border border-[#1e2a47] text-white"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
       </div>
 
-      {/* Mobile menu modal */}
+      {/* Mobile nav modal */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-border bg-background/95 backdrop-blur-xl px-4 pt-2 pb-6 space-y-2">
+        <div className="lg:hidden bg-[#080c18]/95 backdrop-blur-xl border-b border-[#182238] px-6 py-5 space-y-2">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg"
+              onClick={() => {
+                setActiveSection(link.id)
+                setMobileMenuOpen(false)
+              }}
+              className="block px-3 py-2 text-sm font-mono font-medium text-muted-foreground hover:text-white hover:bg-[#2f6bf6]/10 rounded-lg"
             >
               {link.name}
             </a>
           ))}
-          <div className="pt-4 border-t border-border flex items-center justify-between">
+          <div className="pt-4 border-t border-[#182238] flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <a
-                href="https://github.com/PrathameshTawar"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 text-muted-foreground hover:text-foreground"
-              >
-                <GithubIcon className="w-5 h-5" />
+              <a href="https://github.com/PrathameshTawar" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-white">
+                <GithubIcon className="w-4 h-4" />
               </a>
-              <a
-                href="mailto:tawareprathamesh1010@gmail.com"
-                className="p-2 text-muted-foreground hover:text-foreground"
-              >
-                <Mail className="w-5 h-5" />
+              <a href="mailto:tawareprathamesh1010@gmail.com" className="p-2 text-muted-foreground hover:text-white">
+                <span className="text-xs font-mono text-[#2f6bf6]">tawareprathamesh1010@gmail.com</span>
               </a>
             </div>
-            <a
-              href="mailto:tawareprathamesh1010@gmail.com"
-              className="px-4 py-2 text-xs font-semibold rounded-lg bg-primary text-primary-foreground"
-            >
-              Get In Touch
-            </a>
           </div>
         </div>
       )}
