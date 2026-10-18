@@ -1,7 +1,8 @@
 "use client"
 
 import React from "react"
-import { ArrowRight, FileText, Github, Linkedin, Sparkles, Terminal, Award, Zap, ShieldCheck } from "lucide-react"
+import { ArrowRight, Sparkles, Award, Zap, ShieldCheck } from "lucide-react"
+import { GithubIcon } from "@/components/icons"
 
 export default function Hero() {
   return (
@@ -110,7 +111,7 @@ export default function Hero() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-card/80 hover:bg-card text-muted-foreground hover:text-foreground text-sm font-medium border border-border transition-colors"
           >
-            <Github className="w-4 h-4" />
+            <GithubIcon className="w-4 h-4" />
             <span>GitHub</span>
           </a>
         </div>
