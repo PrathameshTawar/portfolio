@@ -2,15 +2,15 @@
 
 import React from "react"
 import GlassFolder from "@/components/ui/glass-folder-cards"
-import { FolderCheck, Sparkles } from "lucide-react"
+import { Sparkles, FolderArchive } from "lucide-react"
 
 export default function GlassFolderShowcase() {
   return (
-    <section id="proof-of-work" className="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-background">
+    <section id="proof-of-work" className="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#080c18]">
       {/* Background ambient lighting */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.08]"
+        className="pointer-events-none absolute inset-0 opacity-[0.06]"
         style={{
           backgroundImage: "radial-gradient(currentColor 1.2px, transparent 1.5px)",
           backgroundSize: "24px 24px",
@@ -18,26 +18,26 @@ export default function GlassFolderShowcase() {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-primary/10 rounded-full blur-[160px] opacity-60"
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#2f6bf6]/10 rounded-full blur-[160px] opacity-70"
       />
 
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-xs font-mono font-medium mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#22c55e]/15 text-[#22c55e] border border-[#22c55e]/30 text-xs font-mono font-medium mb-3">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Interactive Living Artifacts</span>
+            <span>Interactive Living Artifacts · 03 / 07</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground mb-4">
+          <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
             Interactive Proof-of-Work Vault
           </h2>
-          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
-            Tangible proof is better than static bullet points. Explore my live system architectures, patent specifications, and competitive benchmarks inside these physical frosted-glass folders.
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed font-mono">
+            Tangible proof is better than static bullet points. Explore live system architectures, patent specifications, and competitive benchmarks inside these physical frosted-glass folders.
           </p>
         </div>
 
         {/* 3 Glass Folders */}
         <div className="relative grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-12 gap-y-16 items-end justify-items-center">
-          {/* Folder 1: AI Agent Architectures */}
+          {/* Folder 1: AI Agent Architectures (Coral/Ember Theme) */}
           <GlassFolder
             label="Agent Architectures"
             tone="dark"
@@ -71,10 +71,10 @@ export default function GlassFolderShowcase() {
             ]}
           />
 
-          {/* Folder 2: Patent & Research Papers */}
+          {/* Folder 2: Patent & Research Papers (Cobalt/Aurora Theme) */}
           <GlassFolder
             label="Patents & Research"
-            tone="light"
+            tone="dark"
             art="aurora"
             seed={19}
             action="more"
@@ -111,7 +111,7 @@ export default function GlassFolderShowcase() {
             ]}
           />
 
-          {/* Folder 3: Competitive & Podium Honors */}
+          {/* Folder 3: Competitive & Podium Honors (Neon Verdant Green Theme) */}
           <GlassFolder
             label="Competitive Honors"
             tone="dark"
@@ -150,7 +150,7 @@ export default function GlassFolderShowcase() {
 
         {/* Guidance caption */}
         <div className="mt-16 flex items-center justify-center gap-3 text-xs font-mono tracking-widest text-muted-foreground uppercase text-center">
-          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-[#22c55e] animate-pulse" />
           <span>Hover cards to lean · Click to inspect contents · Tap &apos;+&apos; to append file</span>
         </div>
       </div>
