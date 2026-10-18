@@ -1,7 +1,8 @@
 "use client"
 
 import React, { useState, useEffect } from "react"
-import { Github, Linkedin, Mail, Menu, X, Terminal, Cpu } from "lucide-react"
+import { Mail, Menu, X, Terminal, Cpu } from "lucide-react"
+import { GithubIcon, LinkedinIcon } from "@/components/icons"
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -71,7 +72,7 @@ export default function Navbar() {
               aria-label="GitHub Profile"
               className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted/60 rounded-lg transition-colors"
             >
-              <Github className="w-4 h-4" />
+              <GithubIcon className="w-4 h-4" />
             </a>
             <a
               href="https://linkedin.com"
@@ -80,7 +81,7 @@ export default function Navbar() {
               aria-label="LinkedIn Profile"
               className="p-2 text-muted-foreground hover:text-foreground hover:bg-muted/60 rounded-lg transition-colors"
             >
-              <Linkedin className="w-4 h-4" />
+              <LinkedinIcon className="w-4 h-4" />
             </a>
             <a
               href="mailto:tawareprathamesh1010@gmail.com"
@@ -126,7 +127,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 className="p-2 text-muted-foreground hover:text-foreground"
               >
-                <Github className="w-5 h-5" />
+                <GithubIcon className="w-5 h-5" />
               </a>
               <a
                 href="mailto:tawareprathamesh1010@gmail.com"
