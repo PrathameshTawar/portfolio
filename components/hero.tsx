@@ -1,118 +1,172 @@
 "use client"
 
 import React from "react"
-import { ArrowRight, Sparkles, Award, Zap, ShieldCheck } from "lucide-react"
+import { ArrowRight, ArrowDown, Sparkles, Award, Zap, ShieldCheck } from "lucide-react"
 import { GithubIcon } from "@/components/icons"
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[92vh] flex items-center justify-center pt-24 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section id="hero" className="relative min-h-[96vh] flex flex-col justify-between pt-24 pb-8 px-3 sm:px-6 lg:px-8 overflow-hidden bg-[#080c18]">
       {/* Background ambient lighting */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[500px] bg-primary/15 rounded-full blur-[140px] opacity-70"
+        className="pointer-events-none absolute top-10 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-[#2f6bf6]/15 rounded-full blur-[140px] opacity-70"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute bottom-10 right-10 w-[450px] h-[350px] bg-blue-500/10 rounded-full blur-[120px] opacity-50"
+        className="pointer-events-none absolute bottom-20 right-10 w-[400px] h-[300px] bg-[#22c55e]/10 rounded-full blur-[120px] opacity-60"
       />
 
-      {/* Grid pattern overlay */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 opacity-[0.07]"
-        style={{
-          backgroundImage: "radial-gradient(currentColor 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-        }}
-      />
-
-      <div className="relative max-w-5xl mx-auto text-center flex flex-col items-center">
-        {/* Status Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary/80 border border-border text-xs font-medium text-foreground backdrop-blur-md mb-6 hover:border-primary/50 transition-colors">
-          <span className="flex h-2 w-2 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-          </span>
-          <span className="text-muted-foreground">Available for AI Engineering & Full-Stack roles</span>
+      {/* Main hero card container with reference image styling */}
+      <div className="relative max-w-6xl mx-auto w-full rounded-3xl bg-[#0c1222]/90 border border-[#182238] shadow-2xl overflow-hidden mt-4">
+        {/* 1. Neon Green Top Ribbon */}
+        <div className="w-full bg-[#22c55e] text-[#080c18] font-mono text-[11px] sm:text-xs font-bold px-4 sm:px-8 py-2.5 flex items-center justify-between tracking-wider uppercase">
+          <span>2025–2026</span>
+          <span className="hidden sm:inline">AI & FULL-STACK</span>
+          <span className="hidden md:inline">SYSTEM ARCHITECTURE</span>
+          <span className="hidden lg:inline">BENCHMARKS</span>
+          <span className="underline decoration-2 underline-offset-4">COVER PAGE</span>
+          <span>01 / 07</span>
         </div>
 
-        {/* Name and main headline */}
-        <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-[1.1] mb-6">
-          Architecting{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-sky-300">
-            Low-Latency LLM Orchestration
-          </span>{" "}
-          & Production Systems
-        </h1>
+        {/* 2. Main Canvas Area */}
+        <div className="p-6 sm:p-10 lg:p-14 relative">
+          {/* Subtle grid and crosshairs */}
+          <div className="absolute top-6 left-6 text-xs font-mono text-[#2f6bf6]/40 select-none">+ #2026</div>
+          <div className="absolute top-6 right-6 text-xs font-mono text-[#2f6bf6]/40 select-none">+</div>
 
-        {/* Punchy one-liner */}
-        <p className="max-w-3xl text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed font-normal">
-          Hi, I&apos;m <span className="font-semibold text-foreground">Prathamesh Tawar</span>. I engineer deterministic multi-agent
-          pipelines, distributed vector search infrastructures, and full-stack web applications with rigorous benchmark metrics.
-        </p>
-
-        {/* Key credentials bar */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full max-w-4xl mb-10 text-left">
-          <div className="p-3.5 rounded-xl bg-card/60 border border-border/80 backdrop-blur-sm hover:border-primary/40 transition-colors">
-            <div className="flex items-center gap-2 text-primary mb-1">
-              <Zap className="w-4 h-4" />
-              <span className="text-xs font-mono font-semibold uppercase tracking-wider">Patent Filed</span>
-            </div>
-            <p className="text-xs font-medium text-foreground">Cross-Vendor LLM Memory Synchronization</p>
+          {/* Wireframe Outline PORTFOLIO text from reference */}
+          <div className="select-none pointer-events-none my-2">
+            <h2 className="text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter text-stroke-blue leading-none uppercase">
+              PORTFOLIO
+            </h2>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-card/60 border border-border/80 backdrop-blur-sm hover:border-primary/40 transition-colors">
-            <div className="flex items-center gap-2 text-primary mb-1">
-              <Award className="w-4 h-4" />
-              <span className="text-xs font-mono font-semibold uppercase tracking-wider">Competitive Dev</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mt-4">
+            {/* Left title and Chinese/English typography mix */}
+            <div className="lg:col-span-7">
+              <div className="relative inline-block">
+                <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white flex items-baseline gap-2">
+                  <span>PRATHAMESH</span>
+                  <span className="text-[#2f6bf6]">TAWAR</span>
+                </h1>
+                {/* Hand-drawn neon green squiggle SVG from reference */}
+                <svg
+                  className="absolute -bottom-4 right-10 w-24 h-10 text-[#22c55e] pointer-events-none hidden sm:block"
+                  viewBox="0 0 100 40"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                >
+                  <path d="M 5,28 Q 20,5 35,25 T 65,20 Q 80,35 95,12" />
+                </svg>
+              </div>
+
+              <div className="mt-4 flex flex-wrap items-center gap-2">
+                <span className="px-3.5 py-1.5 rounded-xl bg-[#2f6bf6] text-white font-semibold text-xs inline-flex items-center gap-1.5 shadow-md shadow-[#2f6bf6]/30">
+                  <span>AI Engineer & Full-Stack</span>
+                  <ArrowDown className="w-3.5 h-3.5" />
+                </span>
+                <span className="text-xs font-mono text-muted-foreground">(Patent Sync)</span>
+                <span className="text-xs font-mono text-muted-foreground">(LangGraph)</span>
+                <span className="text-xs font-mono text-[#22c55e]">(Codeforces 1650+)</span>
+              </div>
+
+              <p className="mt-5 text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed">
+                Building deterministic low-latency LLM orchestration pipelines, distributed agent swarms, and high-concurrency web systems with verifiable benchmark metrics.
+              </p>
             </div>
-            <p className="text-xs font-medium text-foreground">Codeforces Expert (1650+) · 300+ LeetCode</p>
+
+            {/* Right credentials summary */}
+            <div className="lg:col-span-5 flex flex-col gap-3">
+              <div className="p-3.5 rounded-2xl bg-[#080c18]/80 border border-[#1e2a47] flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#2f6bf6]" />
+                  <span className="text-xs font-mono text-white font-semibold">Patent Protocol</span>
+                </div>
+                <span className="text-xs font-mono text-[#2f6bf6]">99.4% Recall</span>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-[#080c18]/80 border border-[#1e2a47] flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#22c55e]" />
+                  <span className="text-xs font-mono text-white font-semibold">Codeforces Expert</span>
+                </div>
+                <span className="text-xs font-mono text-[#22c55e]">Rating 1650+</span>
+              </div>
+
+              <div className="p-3.5 rounded-2xl bg-[#080c18]/80 border border-[#1e2a47] flex items-center justify-between">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#ff5a36]" />
+                  <span className="text-xs font-mono text-white font-semibold">Build & Grow AI</span>
+                </div>
+                <span className="text-xs font-mono text-[#ff5a36]">Rank 11 / 800+</span>
+              </div>
+            </div>
           </div>
 
-          <div className="p-3.5 rounded-xl bg-card/60 border border-border/80 backdrop-blur-sm hover:border-primary/40 transition-colors">
-            <div className="flex items-center gap-2 text-primary mb-1">
-              <Sparkles className="w-4 h-4" />
-              <span className="text-xs font-mono font-semibold uppercase tracking-wider">Hackathons</span>
+          {/* Action CTAs */}
+          <div className="mt-8 pt-6 border-t border-[#182238] flex flex-wrap items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href="#projects"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#2f6bf6] text-white font-semibold text-xs sm:text-sm hover:brightness-110 shadow-lg shadow-[#2f6bf6]/20 transition-all"
+              >
+                <span>View Featured Builds</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+              <a
+                href="#proof-of-work"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#080c18] hover:bg-[#121a2e] text-white font-medium text-xs sm:text-sm border border-[#1e2a47] transition-all"
+              >
+                <Sparkles className="w-4 h-4 text-[#22c55e]" />
+                <span>Proof-of-Work Vault</span>
+              </a>
             </div>
-            <p className="text-xs font-medium text-foreground">Rank 11 Build & Grow AI · AI for Bharat</p>
-          </div>
 
-          <div className="p-3.5 rounded-xl bg-card/60 border border-border/80 backdrop-blur-sm hover:border-primary/40 transition-colors">
-            <div className="flex items-center gap-2 text-primary mb-1">
-              <ShieldCheck className="w-4 h-4" />
-              <span className="text-xs font-mono font-semibold uppercase tracking-wider">Research</span>
+            <div className="flex items-center gap-2 text-xs font-mono text-muted-foreground">
+              <span>tawareprathamesh1010@gmail.com</span>
             </div>
-            <p className="text-xs font-medium text-foreground">Indic-Language Bilingual RAG System</p>
           </div>
         </div>
 
-        {/* Action CTAs */}
-        <div className="flex flex-wrap items-center justify-center gap-4">
+        {/* 3. Bottom Colored Folder Tabs from Reference Image */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 border-t border-[#182238]">
+          {/* Orange Tab */}
           <a
             href="#projects"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-all shadow-md shadow-primary/20 hover:scale-[1.02] active:scale-[0.98]"
+            className="group px-6 py-4 bg-[#ff5a36] text-white font-mono text-xs font-bold flex items-center justify-between hover:brightness-110 transition-all"
           >
-            <span>View Featured Builds</span>
-            <ArrowRight className="w-4 h-4" />
+            <div className="flex items-center gap-2">
+              <span className="tracking-wider">AI AGENTS</span>
+              <span className="px-1.5 py-0.5 rounded-full border border-white/50 text-[10px]">01</span>
+            </div>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
 
+          {/* Neon Green Tab */}
           <a
             href="#proof-of-work"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-secondary hover:bg-secondary/80 text-foreground font-semibold text-sm border border-border transition-all hover:scale-[1.02] active:scale-[0.98]"
+            className="group px-6 py-4 bg-[#22c55e] text-[#080c18] font-mono text-xs font-bold flex items-center justify-between hover:brightness-110 transition-all border-y sm:border-y-0 sm:border-x border-[#182238]"
           >
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span>Interactive Proof-of-Work</span>
+            <div className="flex items-center gap-2">
+              <span className="tracking-wider">PATENTS & RAG</span>
+              <span className="px-1.5 py-0.5 rounded-full border border-[#080c18]/40 text-[10px]">02</span>
+            </div>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
 
+          {/* Warm Buttercup Yellow Tab */}
           <a
-            href="https://github.com/PrathameshTawar"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-card/80 hover:bg-card text-muted-foreground hover:text-foreground text-sm font-medium border border-border transition-colors"
+            href="#skills"
+            className="group px-6 py-4 bg-[#fde047] text-[#080c18] font-mono text-xs font-bold flex items-center justify-between hover:brightness-110 transition-all"
           >
-            <GithubIcon className="w-4 h-4" />
-            <span>GitHub</span>
+            <div className="flex items-center gap-2">
+              <span className="tracking-wider">CORE SYSTEMS</span>
+              <span className="px-1.5 py-0.5 rounded-full border border-[#080c18]/40 text-[10px]">03</span>
+            </div>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
       </div>
