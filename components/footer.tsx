@@ -1,5 +1,6 @@
 import React from "react"
-import { Cpu, Github, Linkedin, Mail } from "lucide-react"
+import { Cpu, Mail } from "lucide-react"
+import { GithubIcon, LinkedinIcon } from "@/components/icons"
 
 export default function Footer() {
   return (
@@ -21,23 +22,26 @@ export default function Footer() {
             href="https://github.com/PrathameshTawar"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-foreground transition-colors"
+            className="hover:text-foreground transition-colors flex items-center gap-1.5"
           >
-            GitHub
+            <GithubIcon className="w-3.5 h-3.5" />
+            <span>GitHub</span>
           </a>
           <a
             href="https://linkedin.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-foreground transition-colors"
+            className="hover:text-foreground transition-colors flex items-center gap-1.5"
           >
-            LinkedIn
+            <LinkedinIcon className="w-3.5 h-3.5" />
+            <span>LinkedIn</span>
           </a>
           <a
             href="mailto:tawareprathamesh1010@gmail.com"
-            className="hover:text-foreground transition-colors"
+            className="hover:text-foreground transition-colors flex items-center gap-1.5"
           >
-            tawareprathamesh1010@gmail.com
+            <Mail className="w-3.5 h-3.5" />
+            <span>tawareprathamesh1010@gmail.com</span>
           </a>
         </div>
 
