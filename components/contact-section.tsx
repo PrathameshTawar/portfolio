@@ -1,7 +1,8 @@
 "use client"
 
 import React, { useState } from "react"
-import { Mail, Github, Linkedin, Copy, Check, Send, Sparkles, MapPin } from "lucide-react"
+import { Mail, Copy, Check, Send, Sparkles } from "lucide-react"
+import { GithubIcon, LinkedinIcon } from "@/components/icons"
 
 export default function ContactSection() {
   const [copied, setCopied] = useState(false)
@@ -69,7 +70,7 @@ export default function ContactSection() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-background/50 hover:bg-muted text-foreground border border-border transition-colors"
             >
-              <Github className="w-4 h-4" />
+              <GithubIcon className="w-4 h-4" />
               <span>github.com/PrathameshTawar</span>
             </a>
             <a
@@ -78,7 +79,7 @@ export default function ContactSection() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-background/50 hover:bg-muted text-foreground border border-border transition-colors"
             >
-              <Linkedin className="w-4 h-4" />
+              <LinkedinIcon className="w-4 h-4" />
               <span>LinkedIn</span>
             </a>
           </div>
