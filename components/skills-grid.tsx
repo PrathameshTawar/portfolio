@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { Bot, Layers, Terminal, Sparkles, Check, Database, Cloud, Code2 } from "lucide-react"
+import { Bot, Layers, Cloud, Code2, Sparkles } from "lucide-react"
 
 interface SkillCategory {
   title: string
@@ -13,55 +13,55 @@ interface SkillCategory {
 
 const CATEGORIES: SkillCategory[] = [
   {
-    title: "AI & LLM Orchestration",
+    title: "AI & LLM Engineering",
     icon: <Bot className="w-5 h-5 text-[#2f6bf6]" />,
-    description: "Multi-agent runtime frameworks, state machines, semantic retrieval & evaluation.",
+    description: "Frameworks and infrastructure I use to build agent state machines, vector search, and model sync.",
     color: "blue",
     skills: [
       { name: "LangGraph", highlight: true },
-      { name: "Deterministic RAG", highlight: true },
+      { name: "RAG Pipelines", highlight: true },
       { name: "AWS Bedrock", highlight: true },
       { name: "Qdrant / pgvector", highlight: true },
       { name: "Whisper STT" },
-      { name: "Kestra Workflow" },
-      { name: "Semantic Caching" },
-      { name: "Agent Memory Sync", highlight: true },
-      { name: "HuggingFace Transformers" },
+      { name: "Redis Semantic Cache", highlight: true },
+      { name: "BGE-M3 / FAISS" },
+      { name: "Hugging Face" },
+      { name: "LLM Memory Protocols", highlight: true },
       { name: "Evaluation & Benchmarks" },
     ],
   },
   {
-    title: "Full-Stack & Cloud Infrastructure",
+    title: "Full-Stack & Backend",
     icon: <Cloud className="w-5 h-5 text-[#22c55e]" />,
-    description: "High-throughput APIs, asynchronous microservices, resilient modern web frontends.",
+    description: "Production web applications, asynchronous task workers, and database optimization.",
     color: "green",
     skills: [
+      { name: "TypeScript", highlight: true },
+      { name: "Python", highlight: true },
       { name: "FastAPI", highlight: true },
       { name: "Next.js & React 19", highlight: true },
-      { name: "TypeScript", highlight: true },
-      { name: "Docker & Containerization", highlight: true },
-      { name: "AWS (Bedrock, Lambda, S3)" },
+      { name: "Docker", highlight: true },
       { name: "PostgreSQL & HNSW" },
-      { name: "Redis & Pub/Sub" },
-      { name: "Tailwind CSS & shadcn" },
-      { name: "REST & Server-Sent Events" },
-      { name: "CI/CD & Edge Deployment" },
+      { name: "Redis & Celery" },
+      { name: "Tailwind CSS" },
+      { name: "Server-Sent Events (SSE)" },
+      { name: "AWS (Lambda, S3)" },
     ],
   },
   {
-    title: "Core Algorithms & Systems",
+    title: "Algorithms & CS Core",
     icon: <Code2 className="w-5 h-5 text-[#facc15]" />,
-    description: "Deep algorithmic problem-solving with competitive programming discipline.",
+    description: "Competitive programming and deep computer science fundamentals under strict constraints.",
     color: "yellow",
     skills: [
       { name: "Codeforces Expert (1650+)", highlight: true },
-      { name: "300+ LeetCode Solutions", highlight: true },
-      { name: "Advanced Graph Algorithms" },
+      { name: "300+ LeetCode Solved", highlight: true },
+      { name: "C++", highlight: true },
+      { name: "Graph Theory" },
       { name: "Dynamic Programming" },
-      { name: "Distributed System Design" },
-      { name: "Memory Profiling & Concurrency" },
-      { name: "Protobuf & RPC Serialization" },
-      { name: "Complexity Optimization" },
+      { name: "Distributed Systems" },
+      { name: "Protobuf Serialization" },
+      { name: "Concurrency & Memory" },
     ],
   },
 ]
@@ -73,14 +73,14 @@ export default function SkillsGrid() {
         <div>
           <div className="inline-flex items-center gap-2 text-[#2f6bf6] font-mono text-xs uppercase tracking-wider mb-2">
             <Layers className="w-4 h-4" />
-            <span>Technical Capabilities · 05 / 07</span>
+            <span>Tech Stack · 05 / 07</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
-            Skills & Domain Expertise
+            Skills & Everyday Toolkit
           </h2>
         </div>
         <p className="mt-3 md:mt-0 text-muted-foreground text-sm max-w-md font-mono">
-          Structured for both ATS keyword parsers and engineering leadership seeking technical depth.
+          Languages, libraries, and databases I actively write code in for production and competitive programming.
         </p>
       </div>
 
