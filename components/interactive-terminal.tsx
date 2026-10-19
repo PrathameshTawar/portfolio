@@ -105,9 +105,9 @@ export default function InteractiveTerminal() {
 
   return (
     <section id="terminal" className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-      <div className="rounded-2xl bg-[#070b14] border border-[#182238] shadow-2xl overflow-hidden">
+      <div className="rounded-2xl bg-[#09090b] border border-[#27272a] shadow-2xl overflow-hidden">
         {/* Terminal Title Bar */}
-        <div className="flex items-center justify-between px-4 py-3 bg-[#0c1222] border-b border-[#182238]">
+        <div className="flex items-center justify-between px-4 py-3 bg-[#121215] border-b border-[#27272a]">
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-[#ff5a36] inline-block" />
             <span className="w-3 h-3 rounded-full bg-[#facc15] inline-block" />
@@ -144,7 +144,7 @@ export default function InteractiveTerminal() {
         {/* Input Form */}
         <form
           onSubmit={handleCommand}
-          className="flex items-center gap-2 px-4 py-3 bg-[#0c1222] border-t border-[#182238]"
+          className="flex items-center gap-2 px-4 py-3 bg-[#121215] border-t border-[#27272a]"
         >
           <span className="font-mono text-xs text-[#22c55e] font-semibold flex items-center gap-1">
             <span>visitor@tawar-box:~$</span>
