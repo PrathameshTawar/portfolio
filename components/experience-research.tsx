@@ -56,22 +56,22 @@ const TIMELINE: ExperienceItem[] = [
 export default function ExperienceResearch() {
   return (
     <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#27272a]">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#1F1F1F]">
         <div>
-          <div className="inline-flex items-center gap-2 text-[#2f6bf6] font-mono text-xs uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 text-[#38BDF8] font-mono text-xs uppercase tracking-wider mb-2">
             <Briefcase className="w-4 h-4" />
             <span>Track Record · 04 / 07</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#EDEDED]">
             Experience, Patents & Research
           </h2>
         </div>
-        <p className="mt-3 md:mt-0 text-muted-foreground text-sm max-w-md font-mono">
+        <p className="mt-3 md:mt-0 text-[#737373] text-sm max-w-md font-mono">
           Production software engineering, patent-backed LLM systems research, and algorithmic benchmarks.
         </p>
       </div>
 
-      <div className="relative border-l-2 border-[#27272a] ml-4 sm:ml-6 space-y-12">
+      <div className="relative border-l-2 border-[#1F1F1F] ml-4 sm:ml-6 space-y-12">
         {TIMELINE.map((item, index) => {
           const isPatent = item.type === "patent"
           const isResearch = item.type === "research"
@@ -79,15 +79,7 @@ export default function ExperienceResearch() {
           return (
             <div key={item.title + index} className="relative pl-6 sm:pl-8 group">
               {/* Timeline marker icon */}
-              <div
-                className={`absolute -left-[17px] top-1.5 w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all group-hover:scale-110 ${
-                  isPatent
-                    ? "bg-[#ff5a36]/20 border-[#ff5a36] text-[#ff5a36]"
-                    : isResearch
-                    ? "bg-[#22c55e]/20 border-[#22c55e] text-[#22c55e]"
-                    : "bg-[#2f6bf6]/20 border-[#2f6bf6] text-[#2f6bf6]"
-                }`}
-              >
+              <div className="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-[#0A0A0A] border-2 border-[#1F1F1F] text-[#38BDF8] group-hover:border-[#38BDF8]/60 group-hover:shadow-[0_0_15px_rgba(56,189,248,0.25)] flex items-center justify-center transition-all group-hover:scale-110">
                 {isPatent ? (
                   <Award className="w-3.5 h-3.5" />
                 ) : isResearch ? (
@@ -98,12 +90,12 @@ export default function ExperienceResearch() {
               </div>
 
               {/* Content card */}
-              <div className="p-6 sm:p-7 rounded-3xl bg-[#121215] border border-[#27272a] group-hover:border-[#2f6bf6]/50 transition-colors shadow-sm">
+              <div className="p-6 sm:p-7 rounded-3xl bg-[#0A0A0A] border border-[#1F1F1F] hover:border-[#38BDF8]/50 hover:shadow-[0_0_25px_rgba(56,189,248,0.08)] transition-all duration-300">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                  <h3 className="text-xl font-bold text-white group-hover:text-[#2f6bf6] transition-colors">
+                  <h3 className="text-xl font-bold text-[#EDEDED] group-hover:text-[#38BDF8] transition-colors">
                     {item.title}
                   </h3>
-                  <div className="flex items-center gap-3 text-xs text-muted-foreground font-mono">
+                  <div className="flex items-center gap-3 text-xs text-[#737373] font-mono">
                     <span className="flex items-center gap-1">
                       <Calendar className="w-3.5 h-3.5" />
                       {item.period}
@@ -117,24 +109,24 @@ export default function ExperienceResearch() {
                   </div>
                 </div>
 
-                <div className={`text-sm font-semibold mb-4 ${isPatent ? "text-[#ff5a36]" : isResearch ? "text-[#22c55e]" : "text-[#2f6bf6]"}`}>
+                <div className="text-sm font-semibold mb-4 text-[#38BDF8] font-mono">
                   {item.organization}
                 </div>
 
                 <ul className="space-y-2 mb-5">
                   {item.bullets.map((bullet, bIdx) => (
-                    <li key={bIdx} className="text-sm text-slate-300 flex items-start gap-2.5 leading-relaxed">
-                      <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 mt-2 ${isPatent ? "bg-[#ff5a36]" : isResearch ? "bg-[#22c55e]" : "bg-[#2f6bf6]"}`} />
+                    <li key={bIdx} className="text-sm text-[#EDEDED]/90 flex items-start gap-2.5 leading-relaxed font-sans">
+                      <span className="w-1.5 h-1.5 rounded-full flex-shrink-0 mt-2 bg-[#38BDF8]" />
                       <span>{bullet}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="flex flex-wrap gap-2 pt-3 border-t border-[#27272a]">
+                <div className="flex flex-wrap gap-2 pt-3 border-t border-[#1F1F1F]">
                   {item.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs px-2.5 py-0.5 rounded-md bg-[#18181b] text-slate-300 font-mono border border-[#27272a]"
+                      className="text-xs px-2.5 py-0.5 rounded-md bg-[#141414] text-[#EDEDED] font-mono border border-[#1F1F1F] hover:border-[#38BDF8]/40 transition-colors"
                     >
                       {tag}
                     </span>
