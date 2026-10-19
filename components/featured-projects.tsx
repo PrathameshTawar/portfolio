@@ -77,7 +77,7 @@ const PROJECTS: Project[] = [
 export default function FeaturedProjects() {
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#182238]">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#27272a]">
         <div>
           <div className="inline-flex items-center gap-2 text-[#2f6bf6] font-mono text-xs uppercase tracking-wider mb-2">
             <Cpu className="w-4 h-4" />
@@ -96,7 +96,7 @@ export default function FeaturedProjects() {
         {PROJECTS.map((project) => (
           <div
             key={project.title}
-            className="group relative flex flex-col justify-between rounded-3xl bg-[#0c1222] border border-[#182238] p-6 sm:p-8 hover:border-[#2f6bf6]/60 transition-all duration-300 hover:shadow-2xl hover:shadow-[#2f6bf6]/5"
+            className="group relative flex flex-col justify-between rounded-3xl bg-[#121215] border border-[#27272a] p-6 sm:p-8 hover:border-[#2f6bf6]/60 transition-all duration-300 hover:shadow-2xl hover:shadow-[#2f6bf6]/5"
           >
             <div>
               {/* Header tags */}
@@ -136,7 +136,7 @@ export default function FeaturedProjects() {
               <p className="text-sm text-slate-300 leading-relaxed mb-6">{project.description}</p>
 
               {/* Metric Card */}
-              <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-[#080c18] border border-[#182238] mb-6">
+              <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-[#09090b] border border-[#27272a] mb-6">
                 <div className="text-2xl font-extrabold tracking-tight font-mono text-[#2f6bf6]">
                   {project.metric}
                 </div>
@@ -147,18 +147,18 @@ export default function FeaturedProjects() {
               </div>
 
               {/* Engineering Note */}
-              <div className="mb-6 p-3 rounded-xl bg-[#080c18]/90 border border-[#1e2a47] font-mono text-[11px] text-muted-foreground leading-tight">
+              <div className="mb-6 p-3 rounded-xl bg-[#09090b]/90 border border-[#27272a] font-mono text-[11px] text-muted-foreground leading-tight">
                 <span className="text-[#22c55e] font-semibold">Note: </span>
                 {project.note}
               </div>
             </div>
 
             {/* Tech stack badge pills */}
-            <div className="pt-4 border-t border-[#182238] flex flex-wrap gap-1.5">
+            <div className="pt-4 border-t border-[#27272a] flex flex-wrap gap-1.5">
               {project.stack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2.5 py-1 text-xs rounded-md bg-[#121a2e] text-slate-300 font-mono border border-[#1e2a47]"
+                  className="px-2.5 py-1 text-xs rounded-md bg-[#18181b] text-slate-300 font-mono border border-[#27272a]"
                 >
                   {tech}
                 </span>
