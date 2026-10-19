@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { Briefcase, BookOpen, Award, Calendar, MapPin, ArrowRight } from "lucide-react"
+import { Briefcase, BookOpen, Award, Calendar, MapPin } from "lucide-react"
 
 interface ExperienceItem {
   type: "experience" | "research" | "patent"
@@ -16,40 +16,40 @@ interface ExperienceItem {
 const TIMELINE: ExperienceItem[] = [
   {
     type: "patent",
-    title: "Inventor: Cross-Vendor LLM Memory Synchronization Protocol",
-    organization: "Intellectual Property Office Filing",
+    title: "Cross-Vendor LLM Memory Sync Protocol (Patent Filed)",
+    organization: "Independent Research & Patent Filing",
     period: "2024 - Present",
     bullets: [
-      "Engineered a vendor-agnostic episodic attention synchronization layer that normalizes memory representations between proprietary APIs (Claude 3.5, GPT-4o) and open-weights models (Llama 3).",
-      "Achieved 99.4% context recall consistency with zero catastrophic forgetting across multi-turn agent handoffs.",
-      "Reduced cold-start context ingestion latency by 45% using serialized protocol buffer memory vectors.",
+      "Designed an episodic memory normalization protocol that serializes dialogue context into unified Protobuf embeddings, enabling zero-drift handoffs across Claude 3.5, GPT-4o, and Llama 3.",
+      "Benchmarked 99.4% context recall parity on multi-turn dialogue evaluations without model retraining.",
+      "Reduced cold-start context ingestion latency by 45% compared to raw conversational prompt re-feeding.",
     ],
-    tags: ["Patent", "Memory Architectures", "Attention Normalization", "Protobuf"],
+    tags: ["Patent", "Memory Architectures", "Embeddings", "Protobuf"],
   },
   {
     type: "experience",
-    title: "AI Engineer & Full-Stack Intern",
+    title: "AI & Full-Stack Engineering Intern",
     organization: "Gigze",
     period: "2024",
     location: "Remote",
     bullets: [
-      "Architected and deployed asynchronous AI pipeline services using FastAPI, Celery, and Redis, slashing p99 API response times from 3.2s to 850ms.",
-      "Built resilient React and Next.js frontend interfaces consumed by thousands of daily active users, eliminating layout shifts and ensuring sub-second LCP.",
-      "Integrated vector similarity search on PostgreSQL with pgvector, indexing enterprise text embeddings with HNSW index tuning.",
+      "Built asynchronous task pipelines using FastAPI, Celery, and Redis, lowering p99 API response times from 3.2s to 850ms.",
+      "Developed responsive React and Next.js frontend interfaces for active users with sub-second page loads and zero layout shifts.",
+      "Implemented semantic search on PostgreSQL using pgvector, configuring tuned HNSW indexes for fast vector retrieval.",
     ],
     tags: ["FastAPI", "React", "Next.js", "PostgreSQL", "pgvector", "Docker"],
   },
   {
     type: "research",
-    title: "Lead Researcher: Indic-Language Bilingual RAG System",
-    organization: "Applied NLP Research Project",
+    title: "Indic-Language Bilingual RAG Research",
+    organization: "Applied NLP Research & Benchmarking",
     period: "2024",
     bullets: [
-      "Pioneered a bilingual cross-lingual retrieval pipeline specifically addressing token fragmentation in low-resource Indic languages.",
-      "Evaluated dense retrieval models against custom domain data, yielding a +28% Mean Reciprocal Rank (MRR) improvement over standard multilingual models.",
-      "Released reproducible benchmarking harness and lightweight Streamlit exploration dashboard for peer verification.",
+      "Analyzed dense retrieval degradation caused by tokenization fragmentation in low-resource Indic languages.",
+      "Implemented a bilingual dense retrieval pipeline with BGE-M3 and FAISS, improving Mean Reciprocal Rank (MRR) by +28% over vanilla baselines.",
+      "Published reproducible benchmarking scripts and an interactive Streamlit dashboard for empirical validation.",
     ],
-    tags: ["RAG", "BGE-M3", "FAISS", "Cross-Lingual Embeddings", "PyTorch"],
+    tags: ["RAG", "BGE-M3", "FAISS", "Cross-Lingual", "PyTorch"],
   },
 ]
 
@@ -67,7 +67,7 @@ export default function ExperienceResearch() {
           </h2>
         </div>
         <p className="mt-3 md:mt-0 text-muted-foreground text-sm max-w-md font-mono">
-          Production engineering at scale, patent-backed LLM systems research, and high-performance algorithms.
+          Production software engineering, patent-backed LLM systems research, and algorithmic benchmarks.
         </p>
       </div>
 
@@ -78,7 +78,7 @@ export default function ExperienceResearch() {
 
           return (
             <div key={item.title + index} className="relative pl-6 sm:pl-8 group">
-              {/* Timeline marker icon with new color schema */}
+              {/* Timeline marker icon */}
               <div
                 className={`absolute -left-[17px] top-1.5 w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all group-hover:scale-110 ${
                   isPatent
@@ -123,7 +123,7 @@ export default function ExperienceResearch() {
 
                 <ul className="space-y-2 mb-5">
                   {item.bullets.map((bullet, bIdx) => (
-                    <li key={bIdx} className="text-sm text-muted-foreground flex items-start gap-2.5 leading-relaxed">
+                    <li key={bIdx} className="text-sm text-slate-300 flex items-start gap-2.5 leading-relaxed">
                       <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 mt-2 ${isPatent ? "bg-[#ff5a36]" : isResearch ? "bg-[#22c55e]" : "bg-[#2f6bf6]"}`} />
                       <span>{bullet}</span>
                     </li>
