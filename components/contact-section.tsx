@@ -16,45 +16,45 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-      <div className="rounded-3xl bg-card border border-border/80 p-8 sm:p-12 relative overflow-hidden shadow-2xl">
-        {/* Ambient glow */}
+      <div className="rounded-3xl bg-[#0c1222] border border-[#182238] p-8 sm:p-12 relative overflow-hidden shadow-2xl">
+        {/* Ambient glow in electric blue */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -bottom-20 -right-20 w-80 h-80 bg-primary/20 rounded-full blur-[100px]"
+          className="pointer-events-none absolute -bottom-20 -right-20 w-80 h-80 bg-[#2f6bf6]/20 rounded-full blur-[100px]"
         />
 
         <div className="relative text-center max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-xs font-mono font-medium mb-4">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#22c55e]/15 text-[#22c55e] border border-[#22c55e]/30 text-xs font-mono font-medium mb-4">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Direct Inquiries</span>
+            <span>Direct Inquiries · Contact</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white mb-4">
             Let&apos;s Build High-Impact Systems
           </h2>
 
-          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-8">
-            Whether you&apos;re looking to architect low-latency AI agent pipelines, scale resilient full-stack web platforms, or discuss cross-vendor LLM memory architectures, my inbox is open.
+          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-8 font-mono">
+            Whether you&apos;re looking to architect low-latency AI agent pipelines, scale resilient full-stack platforms, or discuss cross-vendor LLM memory architectures, my inbox is open.
           </p>
 
           {/* Email action card */}
-          <div className="inline-flex flex-col sm:flex-row items-center gap-3 p-2 rounded-2xl bg-secondary/80 border border-border max-w-xl mx-auto mb-8 shadow-inner">
-            <div className="flex items-center gap-2 px-4 py-2 font-mono text-sm text-foreground">
-              <Mail className="w-4 h-4 text-primary" />
+          <div className="inline-flex flex-col sm:flex-row items-center gap-3 p-2 rounded-2xl bg-[#080c18] border border-[#1e2a47] max-w-xl mx-auto mb-8 shadow-inner">
+            <div className="flex items-center gap-2 px-4 py-2 font-mono text-sm text-white">
+              <Mail className="w-4 h-4 text-[#2f6bf6]" />
               <span>{email}</span>
             </div>
             <div className="flex items-center gap-2 w-full sm:w-auto justify-center">
               <button
                 type="button"
                 onClick={copyEmail}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-background hover:bg-card text-xs font-medium text-foreground border border-border transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#121a2e] hover:bg-[#18233d] text-xs font-medium text-white border border-[#1e2a47] transition-colors"
               >
-                {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                {copied ? <Check className="w-3.5 h-3.5 text-[#22c55e]" /> : <Copy className="w-3.5 h-3.5 text-muted-foreground" />}
                 <span>{copied ? "Copied!" : "Copy"}</span>
               </button>
               <a
                 href={`mailto:${email}`}
-                className="inline-flex items-center gap-1.5 px-5 py-2 rounded-xl bg-primary hover:bg-primary/90 text-primary-foreground text-xs font-semibold shadow-md shadow-primary/20 transition-colors"
+                className="inline-flex items-center gap-1.5 px-5 py-2 rounded-xl bg-[#2f6bf6] hover:brightness-110 text-white text-xs font-semibold shadow-md shadow-[#2f6bf6]/30 transition-all"
               >
                 <Send className="w-3.5 h-3.5" />
                 <span>Send Email</span>
@@ -63,23 +63,23 @@ export default function ContactSection() {
           </div>
 
           {/* Social links */}
-          <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
+          <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground font-mono">
             <a
               href="https://github.com/PrathameshTawar"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-background/50 hover:bg-muted text-foreground border border-border transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#080c18] hover:bg-[#121a2e] text-white border border-[#1e2a47] transition-colors text-xs"
             >
-              <GithubIcon className="w-4 h-4" />
+              <GithubIcon className="w-4 h-4 text-[#2f6bf6]" />
               <span>github.com/PrathameshTawar</span>
             </a>
             <a
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-background/50 hover:bg-muted text-foreground border border-border transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#080c18] hover:bg-[#121a2e] text-white border border-[#1e2a47] transition-colors text-xs"
             >
-              <LinkedinIcon className="w-4 h-4" />
+              <LinkedinIcon className="w-4 h-4 text-[#2f6bf6]" />
               <span>LinkedIn</span>
             </a>
           </div>
