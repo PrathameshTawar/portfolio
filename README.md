@@ -8,7 +8,7 @@ A living proof-of-work platform showcasing low-latency LLM orchestration pipelin
 
 - **Patent Inventor:** Cross-Vendor LLM Memory Synchronization Protocol (99.4% context recall parity across Claude, GPT-4, and Llama).
 - **Competitive Programmer:** Codeforces Expert (1650+ Max Rating) & 300+ LeetCode algorithmic solutions.
-- **Hackathon Finalist:** Rank 11 out of 800+ national builder teams in *Build & Grow AI 2.0* & Winner at *AI for Bharat*.
+- **Hackathon Finalist:** Rank 11 out of 800+ national builder teams in *Build & Grow AI 2.0* & Finalist at *AI for Bharat*.
 - **Applied Researcher:** Lead author on Indic-Language Bilingual RAG System (+28% MRR improvement).
 
 ---
