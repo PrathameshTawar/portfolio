@@ -30,8 +30,8 @@ const PROJECTS: Project[] = [
     note: "LangGraph StateGraph → Redis Semantic Cache → Bedrock / Claude 3.5 → Qdrant Vector DB",
     githubUrl: "https://github.com/PrathameshTawar",
     liveDemoUrl: "https://github.com/PrathameshTawar",
-    badge: "Core Project",
-    badgeColor: "bg-[#2f6bf6]/15 text-[#2f6bf6] border-[#2f6bf6]/30",
+    badge: "Core Architecture",
+    badgeColor: "bg-[#38BDF8]/10 text-[#38BDF8] border-[#38BDF8]/30",
   },
   {
     title: "GML Memory Protocol",
@@ -44,7 +44,7 @@ const PROJECTS: Project[] = [
     note: "Patent-filed protocol for vendor-neutral memory persistence",
     githubUrl: "https://github.com/PrathameshTawar",
     badge: "Patent Filed",
-    badgeColor: "bg-[#22c55e]/15 text-[#22c55e] border-[#22c55e]/30",
+    badgeColor: "bg-white/10 text-white border-white/25",
   },
   {
     title: "Hive Mind AI",
@@ -57,7 +57,7 @@ const PROJECTS: Project[] = [
     note: "Rank 11 out of 800+ national builder teams",
     githubUrl: "https://github.com/PrathameshTawar",
     badge: "Hackathon Finalist",
-    badgeColor: "bg-[#ff5a36]/15 text-[#ff5a36] border-[#ff5a36]/30",
+    badgeColor: "bg-[#38BDF8]/10 text-[#38BDF8] border-[#38BDF8]/30",
   },
   {
     title: "Indic-Language RAG",
@@ -70,16 +70,16 @@ const PROJECTS: Project[] = [
     note: "+28% MRR improvement over standard multilingual baselines",
     githubUrl: "https://github.com/PrathameshTawar",
     badge: "Research & Benchmarking",
-    badgeColor: "bg-[#fde047]/15 text-[#facc15] border-[#fde047]/30",
+    badgeColor: "bg-white/10 text-[#EDEDED] border-white/20",
   },
 ]
 
 export default function FeaturedProjects() {
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#27272a]">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#1F1F1F]">
         <div>
-          <div className="inline-flex items-center gap-2 text-[#2f6bf6] font-mono text-xs uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 text-[#38BDF8] font-mono text-xs uppercase tracking-wider mb-2">
             <Cpu className="w-4 h-4" />
             <span>Featured Builds · 02 / 07</span>
           </div>
@@ -87,7 +87,7 @@ export default function FeaturedProjects() {
             Projects & Real-World Execution
           </h2>
         </div>
-        <p className="mt-3 md:mt-0 text-muted-foreground text-sm max-w-md font-mono">
+        <p className="mt-3 md:mt-0 text-[#737373] text-sm max-w-md font-mono">
           Real code, real benchmarks, and architecture decisions backed by quantifiable latency numbers.
         </p>
       </div>
@@ -96,7 +96,7 @@ export default function FeaturedProjects() {
         {PROJECTS.map((project) => (
           <div
             key={project.title}
-            className="group relative flex flex-col justify-between rounded-3xl bg-[#121215] border border-[#27272a] p-6 sm:p-8 hover:border-[#2f6bf6]/60 transition-all duration-300 hover:shadow-2xl hover:shadow-[#2f6bf6]/5"
+            className="group relative flex flex-col justify-between rounded-3xl bg-[#0A0A0A] border border-[#1F1F1F] p-6 sm:p-8 hover:border-[#38BDF8]/50 transition-all duration-300 hover:shadow-[0_0_25px_rgba(56,189,248,0.08)]"
           >
             <div>
               {/* Header tags */}
@@ -110,7 +110,7 @@ export default function FeaturedProjects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`GitHub repository for ${project.title}`}
-                    className="p-2 text-muted-foreground hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                    className="p-2 text-[#737373] hover:text-[#38BDF8] hover:bg-white/5 rounded-lg transition-colors"
                   >
                     <GithubIcon className="w-4 h-4" />
                   </a>
@@ -120,7 +120,7 @@ export default function FeaturedProjects() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Live demo for ${project.title}`}
-                      className="p-2 text-muted-foreground hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                      className="p-2 text-[#737373] hover:text-[#38BDF8] hover:bg-white/5 rounded-lg transition-colors"
                     >
                       <ArrowUpRight className="w-4 h-4" />
                     </a>
@@ -129,36 +129,36 @@ export default function FeaturedProjects() {
               </div>
 
               {/* Title & Tagline */}
-              <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-[#2f6bf6] transition-colors">
+              <h3 className="text-2xl font-bold text-[#EDEDED] mb-2 group-hover:text-white transition-colors">
                 {project.title}
               </h3>
-              <p className="text-sm font-medium text-sky-400 mb-3">{project.tagline}</p>
-              <p className="text-sm text-slate-300 leading-relaxed mb-6">{project.description}</p>
+              <p className="text-sm font-mono text-[#38BDF8] mb-3">{project.tagline}</p>
+              <p className="text-sm text-[#A3A3A3] leading-relaxed mb-6">{project.description}</p>
 
               {/* Metric Card */}
-              <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-[#09090b] border border-[#27272a] mb-6">
-                <div className="text-2xl font-extrabold tracking-tight font-mono text-[#2f6bf6]">
+              <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-[#050505] border border-[#1F1F1F] mb-6 hover:border-[#38BDF8]/30 transition-colors">
+                <div className="text-2xl font-extrabold tracking-tight font-mono text-white">
                   {project.metric}
                 </div>
-                <div className="text-xs text-muted-foreground flex items-center gap-1.5 font-mono">
-                  <TrendingUp className="w-3.5 h-3.5 text-[#22c55e] flex-shrink-0" />
+                <div className="text-xs text-[#737373] flex items-center gap-1.5 font-mono">
+                  <TrendingUp className="w-3.5 h-3.5 text-[#38BDF8] flex-shrink-0" />
                   <span>{project.metricLabel}</span>
                 </div>
               </div>
 
               {/* Engineering Note */}
-              <div className="mb-6 p-3 rounded-xl bg-[#09090b]/90 border border-[#27272a] font-mono text-[11px] text-muted-foreground leading-tight">
-                <span className="text-[#22c55e] font-semibold">Note: </span>
+              <div className="mb-6 p-3 rounded-xl bg-[#050505] border border-[#1F1F1F] font-mono text-[11px] text-[#737373] leading-tight">
+                <span className="text-[#38BDF8] font-semibold">Note: </span>
                 {project.note}
               </div>
             </div>
 
             {/* Tech stack badge pills */}
-            <div className="pt-4 border-t border-[#27272a] flex flex-wrap gap-1.5">
+            <div className="pt-4 border-t border-[#1F1F1F] flex flex-wrap gap-1.5">
               {project.stack.map((tech) => (
                 <span
                   key={tech}
-                  className="px-2.5 py-1 text-xs rounded-md bg-[#18181b] text-slate-300 font-mono border border-[#27272a]"
+                  className="px-2.5 py-1 text-xs rounded-md bg-[#141414] text-[#A3A3A3] font-mono border border-[#1F1F1F] hover:text-[#EDEDED] hover:border-[#38BDF8]/40 transition-colors"
                 >
                   {tech}
                 </span>
