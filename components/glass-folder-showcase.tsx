@@ -134,8 +134,8 @@ export default function GlassFolderShowcase() {
                 href: "https://github.com/PrathameshTawar",
               },
               {
-                name: "AI for Bharat Winner",
-                meta: "National Hackathon",
+                name: "AI for Bharat",
+                meta: "Finalist · Vernacular AI",
                 href: "https://github.com/PrathameshTawar",
               },
               {
