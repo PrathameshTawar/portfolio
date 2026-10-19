@@ -20,7 +20,7 @@ const COMMAND_OUTPUTS: Record<string, string[]> = {
     "  • clear      - Clear terminal output",
   ],
   whoami: [
-    "Prathamesh Tawar — AI Engineer & Full-Stack Developer",
+    "Prathamesh Taware | AI Engineer & Full-Stack Developer",
     "Based in India. Focus: Low-latency agent pipelines, vector databases, and high-concurrency web systems.",
     "Competitive programming: Codeforces Expert (1650+).",
   ],
