@@ -31,10 +31,10 @@ const ACHIEVEMENTS: Achievement[] = [
   },
   {
     title: "AI for Bharat Hackathon",
-    subtitle: "Podium Winner",
-    metric: "Winner",
+    subtitle: "Finalist & Contributor",
+    metric: "Finalist",
     metricColor: "text-[#22c55e]",
-    description: "Awarded top honor for building accessible vernacular voice interfaces leveraging localized Whisper STT models and Indic embeddings.",
+    description: "Engineered accessible vernacular voice interfaces leveraging localized Whisper STT models and Indic embeddings.",
     icon: <Flame className="w-5 h-5 text-[#22c55e]" />,
   },
   {
