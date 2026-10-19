@@ -2,11 +2,11 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Prathamesh Tawar | AI Engineer & Full-Stack Developer",
+  title: "Prathamesh Taware | AI Engineer & Full-Stack Developer",
   description:
     "AI Engineer & Full-Stack Developer building low-latency LLM orchestration pipelines. Codeforces Expert (1650+), Patent on cross-vendor LLM memory sync, and Indic-Language RAG researcher.",
   keywords: [
-    "Prathamesh Tawar",
+    "Prathamesh Taware",
     "AI Engineer",
     "Full-Stack Developer",
     "LangGraph",
@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     "Vector Databases",
     "Codeforces Expert",
   ],
-  authors: [{ name: "Prathamesh Tawar", url: "https://github.com/PrathameshTawar" }],
-  creator: "Prathamesh Tawar",
+  authors: [{ name: "Prathamesh Taware", url: "https://github.com/PrathameshTawar" }],
+  creator: "Prathamesh Taware",
   openGraph: {
-    title: "Prathamesh Tawar | AI Engineer & Full-Stack Developer",
+    title: "Prathamesh Taware | AI Engineer & Full-Stack Developer",
     description: "Building low-latency LLM orchestration pipelines and high-performance full-stack systems.",
     type: "website",
     url: "https://github.com/PrathameshTawar/portfolio",
