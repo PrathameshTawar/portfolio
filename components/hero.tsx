@@ -6,7 +6,7 @@ import { GithubIcon } from "@/components/icons"
 
 export default function Hero() {
   return (
-    <section id="hero" className="relative min-h-[96vh] flex flex-col justify-between pt-24 pb-8 px-3 sm:px-6 lg:px-8 overflow-hidden bg-[#080c18]">
+    <section id="hero" className="relative min-h-[96vh] flex flex-col justify-between pt-24 pb-8 px-3 sm:px-6 lg:px-8 overflow-hidden bg-[#09090b]">
       {/* Background ambient lighting */}
       <div
         aria-hidden="true"
@@ -18,9 +18,9 @@ export default function Hero() {
       />
 
       {/* Main hero card container matching reference design */}
-      <div className="relative max-w-6xl mx-auto w-full rounded-3xl bg-[#0c1222]/90 border border-[#182238] shadow-2xl overflow-hidden mt-4">
+      <div className="relative max-w-6xl mx-auto w-full rounded-3xl bg-[#121215]/90 border border-[#27272a] shadow-2xl overflow-hidden mt-4">
         {/* Top Header Ribbon */}
-        <div className="w-full bg-[#22c55e] text-[#080c18] font-mono text-[11px] sm:text-xs font-bold px-4 sm:px-8 py-2.5 flex items-center justify-between tracking-wider uppercase">
+        <div className="w-full bg-[#22c55e] text-[#09090b] font-mono text-[11px] sm:text-xs font-bold px-4 sm:px-8 py-2.5 flex items-center justify-between tracking-wider uppercase">
           <span>PORTFOLIO / 2026</span>
           <span className="hidden sm:inline">AI & FULL-STACK</span>
           <span className="hidden md:inline">PATENT INVENTOR</span>
@@ -79,7 +79,7 @@ export default function Hero() {
 
             {/* Right credentials summary */}
             <div className="lg:col-span-5 flex flex-col gap-3">
-              <div className="p-3.5 rounded-2xl bg-[#080c18]/80 border border-[#1e2a47] flex items-center justify-between">
+              <div className="p-3.5 rounded-2xl bg-[#18181b]/80 border border-[#27272a] flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#2f6bf6]" />
                   <span className="text-xs font-mono text-white font-semibold">Patent Protocol</span>
@@ -87,7 +87,7 @@ export default function Hero() {
                 <span className="text-xs font-mono text-[#2f6bf6]">99.4% Recall</span>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-[#080c18]/80 border border-[#1e2a47] flex items-center justify-between">
+              <div className="p-3.5 rounded-2xl bg-[#18181b]/80 border border-[#27272a] flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#22c55e]" />
                   <span className="text-xs font-mono text-white font-semibold">Codeforces Expert</span>
@@ -95,7 +95,7 @@ export default function Hero() {
                 <span className="text-xs font-mono text-[#22c55e]">Rating 1650+</span>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-[#080c18]/80 border border-[#1e2a47] flex items-center justify-between">
+              <div className="p-3.5 rounded-2xl bg-[#18181b]/80 border border-[#27272a] flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#ff5a36]" />
                   <span className="text-xs font-mono text-white font-semibold">Build & Grow AI</span>
@@ -106,7 +106,7 @@ export default function Hero() {
           </div>
 
           {/* Action CTAs */}
-          <div className="mt-8 pt-6 border-t border-[#182238] flex flex-wrap items-center justify-between gap-4">
+          <div className="mt-8 pt-6 border-t border-[#27272a] flex flex-wrap items-center justify-between gap-4">
             <div className="flex flex-wrap items-center gap-3">
               <a
                 href="#projects"
@@ -117,7 +117,7 @@ export default function Hero() {
               </a>
               <a
                 href="#proof-of-work"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#080c18] hover:bg-[#121a2e] text-white font-medium text-xs sm:text-sm border border-[#1e2a47] transition-all"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#18181b] hover:bg-[#27272a] text-white font-medium text-xs sm:text-sm border border-[#27272a] transition-all"
               >
                 <Sparkles className="w-4 h-4 text-[#22c55e]" />
                 <span>Proof of Work</span>
@@ -131,7 +131,7 @@ export default function Hero() {
         </div>
 
         {/* Bottom Colored Folder Tabs from Reference Image */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 border-t border-[#182238]">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 border-t border-[#27272a]">
           <a
             href="#projects"
             className="group px-6 py-4 bg-[#ff5a36] text-white font-mono text-xs font-bold flex items-center justify-between hover:brightness-110 transition-all"
@@ -145,22 +145,22 @@ export default function Hero() {
 
           <a
             href="#proof-of-work"
-            className="group px-6 py-4 bg-[#22c55e] text-[#080c18] font-mono text-xs font-bold flex items-center justify-between hover:brightness-110 transition-all border-y sm:border-y-0 sm:border-x border-[#182238]"
+            className="group px-6 py-4 bg-[#22c55e] text-[#09090b] font-mono text-xs font-bold flex items-center justify-between hover:brightness-110 transition-all border-y sm:border-y-0 sm:border-x border-[#27272a]"
           >
             <div className="flex items-center gap-2">
               <span className="tracking-wider">PATENTS & RAG</span>
-              <span className="px-1.5 py-0.5 rounded-full border border-[#080c18]/40 text-[10px]">02</span>
+              <span className="px-1.5 py-0.5 rounded-full border border-[#09090b]/40 text-[10px]">02</span>
             </div>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
 
           <a
             href="#skills"
-            className="group px-6 py-4 bg-[#fde047] text-[#080c18] font-mono text-xs font-bold flex items-center justify-between hover:brightness-110 transition-all"
+            className="group px-6 py-4 bg-[#fde047] text-[#09090b] font-mono text-xs font-bold flex items-center justify-between hover:brightness-110 transition-all"
           >
             <div className="flex items-center gap-2">
               <span className="tracking-wider">TECH STACK</span>
-              <span className="px-1.5 py-0.5 rounded-full border border-[#080c18]/40 text-[10px]">03</span>
+              <span className="px-1.5 py-0.5 rounded-full border border-[#09090b]/40 text-[10px]">03</span>
             </div>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
