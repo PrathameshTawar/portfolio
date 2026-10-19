@@ -7,16 +7,14 @@ interface SkillCategory {
   title: string
   icon: React.ReactNode
   description: string
-  color: "blue" | "green" | "yellow"
   skills: { name: string; highlight?: boolean }[]
 }
 
 const CATEGORIES: SkillCategory[] = [
   {
     title: "AI & LLM Engineering",
-    icon: <Bot className="w-5 h-5 text-[#2f6bf6]" />,
+    icon: <Bot className="w-5 h-5 text-[#38BDF8]" />,
     description: "Frameworks and infrastructure I use to build agent state machines, vector search, and model sync.",
-    color: "blue",
     skills: [
       { name: "LangGraph", highlight: true },
       { name: "RAG Pipelines", highlight: true },
@@ -32,9 +30,8 @@ const CATEGORIES: SkillCategory[] = [
   },
   {
     title: "Full-Stack & Backend",
-    icon: <Cloud className="w-5 h-5 text-[#22c55e]" />,
+    icon: <Cloud className="w-5 h-5 text-[#38BDF8]" />,
     description: "Production web applications, asynchronous task workers, and database optimization.",
-    color: "green",
     skills: [
       { name: "TypeScript", highlight: true },
       { name: "Python", highlight: true },
@@ -50,9 +47,8 @@ const CATEGORIES: SkillCategory[] = [
   },
   {
     title: "Algorithms & CS Core",
-    icon: <Code2 className="w-5 h-5 text-[#facc15]" />,
+    icon: <Code2 className="w-5 h-5 text-[#38BDF8]" />,
     description: "Competitive programming and deep computer science fundamentals under strict constraints.",
-    color: "yellow",
     skills: [
       { name: "Codeforces Expert (1650+)", highlight: true },
       { name: "300+ LeetCode Solved", highlight: true },
@@ -69,68 +65,60 @@ const CATEGORIES: SkillCategory[] = [
 export default function SkillsGrid() {
   return (
     <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#27272a]">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#1F1F1F]">
         <div>
-          <div className="inline-flex items-center gap-2 text-[#2f6bf6] font-mono text-xs uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 text-[#38BDF8] font-mono text-xs uppercase tracking-wider mb-2">
             <Layers className="w-4 h-4" />
             <span>Tech Stack · 05 / 07</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-[#EDEDED]">
             Skills & Everyday Toolkit
           </h2>
         </div>
-        <p className="mt-3 md:mt-0 text-muted-foreground text-sm max-w-md font-mono">
+        <p className="mt-3 md:mt-0 text-[#737373] text-sm max-w-md font-mono">
           Languages, libraries, and databases I actively write code in for production and competitive programming.
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-        {CATEGORIES.map((category) => {
-          const highlightBadgeStyle =
-            category.color === "blue"
-              ? "bg-[#2f6bf6]/15 text-[#2f6bf6] border-[#2f6bf6]/30"
-              : category.color === "green"
-              ? "bg-[#22c55e]/15 text-[#22c55e] border-[#22c55e]/30"
-              : "bg-[#fde047]/15 text-[#facc15] border-[#fde047]/30"
-
-          return (
-            <div
-              key={category.title}
-              className="flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-[#121215] border border-[#27272a] hover:border-[#2f6bf6]/40 transition-all shadow-sm"
-            >
-              <div>
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2.5 rounded-2xl bg-[#09090b] border border-[#27272a]">
-                    {category.icon}
-                  </div>
-                  <h3 className="font-bold text-lg text-white tracking-tight">
-                    {category.title}
-                  </h3>
+        {CATEGORIES.map((category) => (
+          <div
+            key={category.title}
+            className="flex flex-col justify-between p-6 sm:p-7 rounded-3xl bg-[#0A0A0A] border border-[#1F1F1F] hover:border-[#38BDF8]/50 hover:shadow-[0_0_25px_rgba(56,189,248,0.08)] transition-all duration-300"
+          >
+            <div>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="p-2.5 rounded-2xl bg-[#050505] border border-[#1F1F1F]">
+                  {category.icon}
                 </div>
-                <p className="text-xs text-muted-foreground mb-6 leading-relaxed">
-                  {category.description}
-                </p>
+                <h3 className="font-bold text-lg text-[#EDEDED] tracking-tight">
+                  {category.title}
+                </h3>
+              </div>
+              <p className="text-xs text-[#737373] mb-6 leading-relaxed font-sans">
+                {category.description}
+              </p>
 
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <span
-                      key={skill.name}
-                      className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono transition-colors ${
-                        skill.highlight
-                          ? `${highlightBadgeStyle} font-semibold border`
-                          : "bg-[#18181b] text-slate-300 border border-[#27272a]"
-                      }`}
-                    >
-                      {skill.highlight && <Sparkles className="w-3 h-3 flex-shrink-0" />}
-                      <span>{skill.name}</span>
-                    </span>
-                  ))}
-                </div>
+              <div className="flex flex-wrap gap-2">
+                {category.skills.map((skill) => (
+                  <span
+                    key={skill.name}
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono transition-all ${
+                      skill.highlight
+                        ? "bg-[#38BDF8]/10 text-[#38BDF8] border border-[#38BDF8]/30 font-semibold hover:bg-[#38BDF8]/20"
+                        : "bg-[#141414] text-[#EDEDED]/90 border border-[#1F1F1F] hover:border-[#38BDF8]/40 hover:text-[#FFFFFF]"
+                    }`}
+                  >
+                    {skill.highlight && <Sparkles className="w-3 h-3 flex-shrink-0 text-[#38BDF8]" />}
+                    <span>{skill.name}</span>
+                  </span>
+                ))}
               </div>
             </div>
-          )
-        })}
+          </div>
+        ))}
       </div>
     </section>
   )
 }
+
