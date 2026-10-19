@@ -17,22 +17,21 @@ export default function Hero() {
         className="pointer-events-none absolute bottom-20 right-10 w-[400px] h-[300px] bg-[#22c55e]/10 rounded-full blur-[120px] opacity-60"
       />
 
-      {/* Main hero card container with reference image styling */}
+      {/* Main hero card container matching reference design */}
       <div className="relative max-w-6xl mx-auto w-full rounded-3xl bg-[#0c1222]/90 border border-[#182238] shadow-2xl overflow-hidden mt-4">
-        {/* 1. Neon Green Top Ribbon */}
+        {/* Top Header Ribbon */}
         <div className="w-full bg-[#22c55e] text-[#080c18] font-mono text-[11px] sm:text-xs font-bold px-4 sm:px-8 py-2.5 flex items-center justify-between tracking-wider uppercase">
-          <span>2025–2026</span>
+          <span>PORTFOLIO / 2026</span>
           <span className="hidden sm:inline">AI & FULL-STACK</span>
-          <span className="hidden md:inline">SYSTEM ARCHITECTURE</span>
-          <span className="hidden lg:inline">BENCHMARKS</span>
-          <span className="underline decoration-2 underline-offset-4">COVER PAGE</span>
+          <span className="hidden md:inline">PATENT INVENTOR</span>
+          <span className="hidden lg:inline">CODEFORCES EXPERT</span>
+          <span className="underline decoration-2 underline-offset-4">AVAILABLE FOR WORK</span>
           <span>01 / 07</span>
         </div>
 
-        {/* 2. Main Canvas Area */}
+        {/* Main Canvas Area */}
         <div className="p-6 sm:p-10 lg:p-14 relative">
-          {/* Subtle grid and crosshairs */}
-          <div className="absolute top-6 left-6 text-xs font-mono text-[#2f6bf6]/40 select-none">+ #2026</div>
+          <div className="absolute top-6 left-6 text-xs font-mono text-[#2f6bf6]/40 select-none">+ 2026</div>
           <div className="absolute top-6 right-6 text-xs font-mono text-[#2f6bf6]/40 select-none">+</div>
 
           {/* Wireframe Outline PORTFOLIO text from reference */}
@@ -43,7 +42,7 @@ export default function Hero() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mt-4">
-            {/* Left title and Chinese/English typography mix */}
+            {/* Left title and authentic bio */}
             <div className="lg:col-span-7">
               <div className="relative inline-block">
                 <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white flex items-baseline gap-2">
@@ -68,13 +67,13 @@ export default function Hero() {
                   <span>AI Engineer & Full-Stack</span>
                   <ArrowDown className="w-3.5 h-3.5" />
                 </span>
-                <span className="text-xs font-mono text-muted-foreground">(Patent Sync)</span>
-                <span className="text-xs font-mono text-muted-foreground">(LangGraph)</span>
-                <span className="text-xs font-mono text-[#22c55e]">(Codeforces 1650+)</span>
+                <span className="text-xs font-mono text-muted-foreground">Python & TypeScript</span>
+                <span className="text-xs font-mono text-muted-foreground">LangGraph</span>
+                <span className="text-xs font-mono text-[#22c55e]">Codeforces 1650+</span>
               </div>
 
-              <p className="mt-5 text-sm sm:text-base text-muted-foreground max-w-xl leading-relaxed">
-                Building deterministic low-latency LLM orchestration pipelines, distributed agent swarms, and high-concurrency web systems with verifiable benchmark metrics.
+              <p className="mt-5 text-sm sm:text-base text-slate-300 max-w-xl leading-relaxed">
+                I build low-latency multi-agent systems, write scalable full-stack web applications, and optimize vector search pipelines. Patent-filed for cross-vendor LLM memory sync.
               </p>
             </div>
 
@@ -113,7 +112,7 @@ export default function Hero() {
                 href="#projects"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#2f6bf6] text-white font-semibold text-xs sm:text-sm hover:brightness-110 shadow-lg shadow-[#2f6bf6]/20 transition-all"
               >
-                <span>View Featured Builds</span>
+                <span>View Projects</span>
                 <ArrowRight className="w-4 h-4" />
               </a>
               <a
@@ -121,7 +120,7 @@ export default function Hero() {
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#080c18] hover:bg-[#121a2e] text-white font-medium text-xs sm:text-sm border border-[#1e2a47] transition-all"
               >
                 <Sparkles className="w-4 h-4 text-[#22c55e]" />
-                <span>Proof-of-Work Vault</span>
+                <span>Proof of Work</span>
               </a>
             </div>
 
@@ -131,21 +130,19 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* 3. Bottom Colored Folder Tabs from Reference Image */}
+        {/* Bottom Colored Folder Tabs from Reference Image */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-0 border-t border-[#182238]">
-          {/* Orange Tab */}
           <a
             href="#projects"
             className="group px-6 py-4 bg-[#ff5a36] text-white font-mono text-xs font-bold flex items-center justify-between hover:brightness-110 transition-all"
           >
             <div className="flex items-center gap-2">
-              <span className="tracking-wider">AI AGENTS</span>
+              <span className="tracking-wider">FEATURED BUILDS</span>
               <span className="px-1.5 py-0.5 rounded-full border border-white/50 text-[10px]">01</span>
             </div>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
 
-          {/* Neon Green Tab */}
           <a
             href="#proof-of-work"
             className="group px-6 py-4 bg-[#22c55e] text-[#080c18] font-mono text-xs font-bold flex items-center justify-between hover:brightness-110 transition-all border-y sm:border-y-0 sm:border-x border-[#182238]"
@@ -157,13 +154,12 @@ export default function Hero() {
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
 
-          {/* Warm Buttercup Yellow Tab */}
           <a
             href="#skills"
             className="group px-6 py-4 bg-[#fde047] text-[#080c18] font-mono text-xs font-bold flex items-center justify-between hover:brightness-110 transition-all"
           >
             <div className="flex items-center gap-2">
-              <span className="tracking-wider">CORE SYSTEMS</span>
+              <span className="tracking-wider">TECH STACK</span>
               <span className="px-1.5 py-0.5 rounded-full border border-[#080c18]/40 text-[10px]">03</span>
             </div>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
