@@ -47,7 +47,7 @@ export default function Hero() {
               <div className="relative inline-block">
                 <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white flex items-baseline gap-2">
                   <span>PRATHAMESH</span>
-                  <span className="text-[#2f6bf6]">TAWAR</span>
+                  <span className="text-[#2f6bf6]">TAWARE</span>
                 </h1>
                 {/* Hand-drawn neon green squiggle SVG from reference */}
                 <svg
