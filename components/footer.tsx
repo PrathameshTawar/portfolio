@@ -4,7 +4,7 @@ import { GithubIcon, LinkedinIcon } from "@/components/icons"
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[#182238] bg-[#080c18] py-12 px-4 sm:px-6 lg:px-8">
+    <footer className="border-t border-[#27272a] bg-[#09090b] py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-muted-foreground font-mono">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded-xl bg-[#2f6bf6]/15 border border-[#2f6bf6]/30 flex items-center justify-center text-[#2f6bf6]">
