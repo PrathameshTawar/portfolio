@@ -50,7 +50,7 @@ const ACHIEVEMENTS: Achievement[] = [
 export default function Achievements() {
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#182238]">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#27272a]">
         <div>
           <div className="inline-flex items-center gap-2 text-[#2f6bf6] font-mono text-xs uppercase tracking-wider mb-2">
             <Trophy className="w-4 h-4" />
@@ -69,11 +69,11 @@ export default function Achievements() {
         {ACHIEVEMENTS.map((item) => (
           <div
             key={item.title}
-            className="flex flex-col justify-between p-6 rounded-3xl bg-[#0c1222] border border-[#182238] hover:border-[#2f6bf6]/40 transition-all hover:shadow-xl hover:shadow-[#2f6bf6]/5"
+            className="flex flex-col justify-between p-6 rounded-3xl bg-[#121215] border border-[#27272a] hover:border-[#2f6bf6]/40 transition-all hover:shadow-xl hover:shadow-[#2f6bf6]/5"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="p-2.5 rounded-2xl bg-[#080c18] border border-[#182238]">
+                <div className="p-2.5 rounded-2xl bg-[#09090b] border border-[#27272a]">
                   {item.icon}
                 </div>
                 <span className={`font-mono text-2xl font-black ${item.metricColor}`}>
