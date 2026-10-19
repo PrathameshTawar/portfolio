@@ -11,7 +11,7 @@ export default function Footer() {
             <Cpu className="w-4 h-4" />
           </div>
           <div>
-            <span className="font-bold text-white">PRATHAMESH TAWAR</span>
+            <span className="font-bold text-white">PRATHAMESH TAWARE</span>
             <span className="mx-2 text-[#22c55e]">·</span>
             <span>AI Engineer & Full-Stack Developer</span>
           </div>
