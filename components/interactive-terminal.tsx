@@ -20,7 +20,7 @@ const COMMAND_OUTPUTS: Record<string, string[]> = {
     "  • clear     - Clear terminal buffer",
   ],
   about: [
-    "Prathamesh Tawar — AI Engineer & Full-Stack Developer",
+    "Prathamesh Tawar | AI Engineer & Full-Stack Developer",
     "Specialization: Low-latency LLM orchestration pipelines, multi-agent frameworks, and high-concurrency systems.",
     "Credentials: Codeforces Expert (1650+), Patent Inventor, Indic RAG Researcher.",
   ],
@@ -59,7 +59,7 @@ export default function InteractiveTerminal() {
   const [history, setHistory] = useState<HistoryEntry[]>([
     {
       type: "system",
-      text: "⚡ Antigravity Agent Runtime [v2.4.0] — Initialized session for visitor@portfolio",
+      text: "[SYSTEM] Antigravity Agent Runtime [v2.4.0]: Initialized session for visitor@portfolio",
     },
     {
       type: "system",
