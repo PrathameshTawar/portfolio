@@ -56,36 +56,36 @@ const TIMELINE: ExperienceItem[] = [
 export default function ExperienceResearch() {
   return (
     <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-border/80">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#182238]">
         <div>
-          <div className="inline-flex items-center gap-2 text-primary font-mono text-xs uppercase tracking-wider mb-2">
+          <div className="inline-flex items-center gap-2 text-[#2f6bf6] font-mono text-xs uppercase tracking-wider mb-2">
             <Briefcase className="w-4 h-4" />
-            <span>Track Record</span>
+            <span>Track Record · 04 / 07</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+          <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
             Experience, Patents & Research
           </h2>
         </div>
-        <p className="mt-3 md:mt-0 text-muted-foreground text-sm max-w-md">
-          A track record spanning production engineering at scale, patent-backed LLM systems research, and high-performance algorithms.
+        <p className="mt-3 md:mt-0 text-muted-foreground text-sm max-w-md font-mono">
+          Production engineering at scale, patent-backed LLM systems research, and high-performance algorithms.
         </p>
       </div>
 
-      <div className="relative border-l-2 border-border/60 ml-4 sm:ml-6 space-y-12">
+      <div className="relative border-l-2 border-[#182238] ml-4 sm:ml-6 space-y-12">
         {TIMELINE.map((item, index) => {
           const isPatent = item.type === "patent"
           const isResearch = item.type === "research"
 
           return (
             <div key={item.title + index} className="relative pl-6 sm:pl-8 group">
-              {/* Timeline marker icon */}
+              {/* Timeline marker icon with new color schema */}
               <div
                 className={`absolute -left-[17px] top-1.5 w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all group-hover:scale-110 ${
                   isPatent
-                    ? "bg-amber-950/80 border-amber-500 text-amber-400"
+                    ? "bg-[#ff5a36]/20 border-[#ff5a36] text-[#ff5a36]"
                     : isResearch
-                    ? "bg-blue-950/80 border-blue-500 text-blue-400"
-                    : "bg-emerald-950/80 border-emerald-500 text-emerald-400"
+                    ? "bg-[#22c55e]/20 border-[#22c55e] text-[#22c55e]"
+                    : "bg-[#2f6bf6]/20 border-[#2f6bf6] text-[#2f6bf6]"
                 }`}
               >
                 {isPatent ? (
@@ -98,9 +98,9 @@ export default function ExperienceResearch() {
               </div>
 
               {/* Content card */}
-              <div className="p-6 sm:p-7 rounded-2xl bg-card border border-border/80 group-hover:border-primary/40 transition-colors shadow-sm">
+              <div className="p-6 sm:p-7 rounded-3xl bg-[#0c1222] border border-[#182238] group-hover:border-[#2f6bf6]/50 transition-colors shadow-sm">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-bold text-white group-hover:text-[#2f6bf6] transition-colors">
                     {item.title}
                   </h3>
                   <div className="flex items-center gap-3 text-xs text-muted-foreground font-mono">
@@ -117,24 +117,24 @@ export default function ExperienceResearch() {
                   </div>
                 </div>
 
-                <div className="text-sm font-semibold text-primary/90 mb-4">
+                <div className={`text-sm font-semibold mb-4 ${isPatent ? "text-[#ff5a36]" : isResearch ? "text-[#22c55e]" : "text-[#2f6bf6]"}`}>
                   {item.organization}
                 </div>
 
                 <ul className="space-y-2 mb-5">
                   {item.bullets.map((bullet, bIdx) => (
                     <li key={bIdx} className="text-sm text-muted-foreground flex items-start gap-2.5 leading-relaxed">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0 mt-2" />
+                      <span className={`w-1.5 h-1.5 rounded-full flex-shrink-0 mt-2 ${isPatent ? "bg-[#ff5a36]" : isResearch ? "bg-[#22c55e]" : "bg-[#2f6bf6]"}`} />
                       <span>{bullet}</span>
                     </li>
                   ))}
                 </ul>
 
-                <div className="flex flex-wrap gap-2 pt-3 border-t border-border/50">
+                <div className="flex flex-wrap gap-2 pt-3 border-t border-[#182238]">
                   {item.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs px-2.5 py-0.5 rounded-md bg-secondary/80 text-foreground/80 font-mono"
+                      className="text-xs px-2.5 py-0.5 rounded-md bg-[#121a2e] text-slate-300 font-mono border border-[#1e2a47]"
                     >
                       {tag}
                     </span>
