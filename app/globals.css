@@ -2,27 +2,27 @@
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%;     /* #09090b - sleek deep zinc studio black */
-    --foreground: 210 40% 98%;      /* crisp white/silver */
-    --card: 240 5.9% 10%;           /* #121215 - modern charcoal card */
-    --card-foreground: 210 40% 98%;
-    --popover: 240 5.9% 10%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 222 92% 57%;         /* #2f6bf6 - vibrant electric cobalt */
-    --primary-foreground: 0 0% 100%;
-    --secondary: 240 4.8% 13%;      /* #18181b - subtle zinc secondary */
-    --secondary-foreground: 210 40% 98%;
-    --muted: 240 3.7% 15.9%;        /* #27272a */
-    --muted-foreground: 240 5% 65%;
-    --accent: 142 71% 45%;          /* #22c55e - electric neon lime green */
-    --accent-foreground: 240 10% 3.9%;
-    --coral: 11 100% 61%;           /* #ff5a36 - vibrant coral orange */
-    --yellow: 48 96% 53%;           /* #facc15 - buttercup cream yellow */
+    --background: 0 0% 2%;          /* #050505 - pitch-black minimal canvas */
+    --foreground: 0 0% 93%;         /* #EDEDED - off-white primary text */
+    --card: 0 0% 4%;                /* #0A0A0A - slightly elevated dark surface */
+    --card-foreground: 0 0% 93%;    /* #EDEDED */
+    --popover: 0 0% 4%;             /* #0A0A0A */
+    --popover-foreground: 0 0% 93%;
+    --primary: 199 89% 60%;         /* #38BDF8 - sky blue secondary accent for interactive elements */
+    --primary-foreground: 0 0% 2%;
+    --secondary: 0 0% 8%;           /* #141414 - subtle elevated surface */
+    --secondary-foreground: 0 0% 93%;
+    --muted: 0 0% 12%;              /* #1F1F1F */
+    --muted-foreground: 0 0% 45%;   /* #737373 - neutral gray muted text */
+    --accent: 0 0% 100%;            /* #FFFFFF - pure white primary accent */
+    --accent-foreground: 0 0% 2%;
+    --coral: 11 100% 61%;           /* #ff5a36 - preserved for alerts */
+    --yellow: 48 96% 53%;           /* #facc15 */
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 240 3.7% 17%;         /* #27272a */
-    --input: 240 3.7% 17%;
-    --ring: 222 92% 57%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 12%;             /* #1F1F1F - subtle frosted-glass border */
+    --input: 0 0% 12%;              /* #1F1F1F */
+    --ring: 199 89% 60%;            /* #38BDF8 */
     --radius: 0.85rem;
   }
 }
@@ -55,20 +55,20 @@ html {
 }
 
 body {
-  background-color: #09090b;
-  color: hsl(var(--foreground));
+  background-color: #050505;
+  color: #EDEDED;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   overflow-x: hidden;
 }
 
-/* Outlined wireframe typography matching reference */
+/* Outlined wireframe typography matching hyper-minimalist sky-blue accent */
 .text-stroke-blue {
-  -webkit-text-stroke: 1.5px #2f6bf6;
+  -webkit-text-stroke: 1.5px #38BDF8;
   color: transparent;
 }
 
 .text-stroke-thick {
-  -webkit-text-stroke: 2px #2f6bf6;
+  -webkit-text-stroke: 2px #38BDF8;
   color: transparent;
 }
 
@@ -77,12 +77,12 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #09090b;
+  background: #050505;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #1F1F1F;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2f6bf6;
+  background: #38BDF8;
 }
