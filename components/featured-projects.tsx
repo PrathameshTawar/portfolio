@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { ExternalLink, Layers, ArrowUpRight, CheckCircle2, TrendingUp, Cpu, Database } from "lucide-react"
+import { ArrowUpRight, TrendingUp, Cpu } from "lucide-react"
 import { GithubIcon } from "@/components/icons"
 
 interface Project {
@@ -11,7 +11,7 @@ interface Project {
   metric: string
   metricLabel: string
   stack: string[]
-  architecture: string
+  note: string
   githubUrl: string
   liveDemoUrl?: string
   badge: string
@@ -21,55 +21,55 @@ interface Project {
 const PROJECTS: Project[] = [
   {
     title: "DARKSEID",
-    tagline: "Low-Latency Autonomous Multi-Agent Orchestration",
+    tagline: "LangGraph Multi-Agent Runtime with Semantic Caching",
     description:
-      "A deterministic agentic workflow runtime engine designed to coordinate concurrent reasoning agents. Features dynamic checkpointing, human-in-the-loop interruption vectors, and streaming AST synthesis.",
+      "Standard multi-agent chains often suffer from high latency and token costs on repeated queries. I built DARKSEID to run deterministic agent state machines, adding an in-memory Redis semantic cache that drops p95 response time by 35%.",
     metric: "-35%",
-    metricLabel: "p95 Orchestration Latency with LangGraph & Semantic Caching",
-    stack: ["LangGraph", "FastAPI", "AWS Bedrock", "Qdrant", "React", "Docker"],
-    architecture: "State Graph Router → Semantic Cache Layer → Bedrock / Claude 3.5 → Qdrant Vector Pipeline",
+    metricLabel: "p95 Orchestration Latency with LangGraph & Redis",
+    stack: ["LangGraph", "FastAPI", "AWS Bedrock", "Qdrant", "Redis", "Docker"],
+    note: "LangGraph StateGraph → Redis Semantic Cache → Bedrock / Claude 3.5 → Qdrant Vector DB",
     githubUrl: "https://github.com/PrathameshTawar",
     liveDemoUrl: "https://github.com/PrathameshTawar",
-    badge: "Featured Build",
+    badge: "Core Project",
     badgeColor: "bg-[#2f6bf6]/15 text-[#2f6bf6] border-[#2f6bf6]/30",
   },
   {
     title: "GML Memory Protocol",
-    tagline: "Patent-Pending Cross-Vendor LLM Memory Sync",
+    tagline: "Cross-Vendor LLM Context Synchronization",
     description:
-      "A universal protocol enabling stateful episodic and semantic memory transfer across disparate model families (OpenAI, Anthropic, open-weights). Eliminates vendor lock-in by normalizing attention context windows.",
+      "Switching between models (Claude, GPT-4, Llama) typically means losing conversation history or re-ingesting raw context windows. This protocol normalizes episodic memory into compact Protobuf vectors to achieve 99.4% context recall parity without catastrophic forgetting.",
     metric: "99.4%",
-    metricLabel: "Context Recall Parity Across Heterogeneous Model Swarms",
+    metricLabel: "Context Recall Parity Across Model Families",
     stack: ["Python", "pgvector", "FastAPI", "OpenAI SDK", "Anthropic API", "Protobuf"],
-    architecture: "Episodic Ingestion → Embedding Projection → Cross-Model Alignment → Sync Dispatcher",
+    note: "Patent-filed protocol for vendor-neutral memory persistence",
     githubUrl: "https://github.com/PrathameshTawar",
     badge: "Patent Filed",
     badgeColor: "bg-[#22c55e]/15 text-[#22c55e] border-[#22c55e]/30",
   },
   {
     title: "Hive Mind AI",
-    tagline: "Distributed Swarm Intelligence & Diagnostics",
+    tagline: "Distributed Multi-Agent Diagnostics",
     description:
-      "Consensus-driven multi-agent platform for automated root-cause analysis in distributed cloud applications. Employs round-robin agent debates to verify edge-case hypotheses before executing remediation playbooks.",
+      "Built for the Build & Grow AI 2.0 hackathon. A distributed multi-agent system that ingests cloud error logs, runs concurrent hypotheses through debate agents, and automatically identifies root causes before engineers get paged.",
     metric: "Rank 11",
-    metricLabel: "National Finalist in Build & Grow AI 2.0 (800+ Teams)",
+    metricLabel: "National Finalist out of 800+ Teams",
     stack: ["Next.js", "TypeScript", "LangChain", "Celery", "Redis", "PostgreSQL"],
-    architecture: "Worker Swarm → Async Celery Tasks → Consensus Validator → Next.js Real-time Dashboard",
+    note: "Rank 11 out of 800+ national builder teams",
     githubUrl: "https://github.com/PrathameshTawar",
-    badge: "Hackathon Award",
+    badge: "Hackathon Finalist",
     badgeColor: "bg-[#ff5a36]/15 text-[#ff5a36] border-[#ff5a36]/30",
   },
   {
     title: "Indic-Language RAG",
-    tagline: "Bilingual Retrieval-Augmented Generation for Low-Resource Languages",
+    tagline: "Bilingual Retrieval for Low-Resource Dialects",
     description:
-      "Specialized hybrid dense-sparse retrieval pipeline with cross-lingual embedding alignment for Indic dialect corpora. Addresses tokenization bloat and semantic drift in non-English technical documentation.",
+      "Standard embedding models struggle on Indic languages due to token fragmentation. I implemented a bilingual dense retrieval pipeline using BGE-M3 and quantized FAISS partitions, indexing 500+ documents with a 42% reduction in retrieval latency.",
     metric: "+42%",
-    metricLabel: "Retrieval Latency Reduction & 500+ Corpus Documents Indexed",
+    metricLabel: "Retrieval Latency Reduction & 500+ Documents",
     stack: ["HuggingFace", "PyTorch", "FAISS", "FastAPI", "BGE-M3", "Streamlit"],
-    architecture: "Chunk Tokenizer → BGE-M3 Dual Encoder → FAISS Quantized Index → Re-ranking Cross-Encoder",
+    note: "+28% MRR improvement over standard multilingual baselines",
     githubUrl: "https://github.com/PrathameshTawar",
-    badge: "Research Publication",
+    badge: "Research & Benchmarking",
     badgeColor: "bg-[#fde047]/15 text-[#facc15] border-[#fde047]/30",
   },
 ]
@@ -81,14 +81,14 @@ export default function FeaturedProjects() {
         <div>
           <div className="inline-flex items-center gap-2 text-[#2f6bf6] font-mono text-xs uppercase tracking-wider mb-2">
             <Cpu className="w-4 h-4" />
-            <span>Production Architectures</span>
+            <span>Featured Builds · 02 / 07</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
-            Featured Systems & Proof-of-Work
+            Projects & Real-World Execution
           </h2>
         </div>
         <p className="mt-3 md:mt-0 text-muted-foreground text-sm max-w-md font-mono">
-          [02 / 07] Production-grade systems with verifiable latency optimizations, architectural diagrams, and patent-backed IP.
+          Real code, real benchmarks, and architecture decisions backed by quantifiable latency numbers.
         </p>
       </div>
 
@@ -133,9 +133,9 @@ export default function FeaturedProjects() {
                 {project.title}
               </h3>
               <p className="text-sm font-medium text-sky-400 mb-3">{project.tagline}</p>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-6">{project.description}</p>
+              <p className="text-sm text-slate-300 leading-relaxed mb-6">{project.description}</p>
 
-              {/* Standout Metric Card */}
+              {/* Metric Card */}
               <div className="flex items-center gap-3 p-3.5 rounded-2xl bg-[#080c18] border border-[#182238] mb-6">
                 <div className="text-2xl font-extrabold tracking-tight font-mono text-[#2f6bf6]">
                   {project.metric}
@@ -146,10 +146,10 @@ export default function FeaturedProjects() {
                 </div>
               </div>
 
-              {/* Architecture Blueprint Strip */}
-              <div className="mb-6 p-3.5 rounded-xl bg-[#080c18]/90 border border-[#1e2a47] font-mono text-[11px] text-muted-foreground leading-tight">
-                <span className="text-[#22c55e] font-semibold">Arch: </span>
-                {project.architecture}
+              {/* Engineering Note */}
+              <div className="mb-6 p-3 rounded-xl bg-[#080c18]/90 border border-[#1e2a47] font-mono text-[11px] text-muted-foreground leading-tight">
+                <span className="text-[#22c55e] font-semibold">Note: </span>
+                {project.note}
               </div>
             </div>
 
