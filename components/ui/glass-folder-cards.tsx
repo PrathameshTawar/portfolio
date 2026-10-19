@@ -84,8 +84,14 @@ export type GlassFolderProps = {
   files?: FolderFile[]
   /** `add` drops new files in, `more` opens a menu, `none` hides the key. */
   action?: "add" | "more" | "none"
+  /** Whether the current session has admin privileges. Add and subtract (delete) are admin-only. */
+  isAdmin?: boolean
+  /** Triggered when a guest attempts an admin-only action (add or subtract). */
+  onRequireAdmin?: () => void
   /** What `add` puts in the folder. Return nothing for an "Untitled" sheet. */
   onAdd?: (files: FolderFile[]) => FolderFile | void
+  /** Called when a file is subtracted/removed. */
+  onRemove?: (file: FolderFile, index: number) => void
   onFilesChange?: (files: FolderFile[]) => void
   /** Items for the menu. An open/close item is always first. */
   menu?: FolderMenuItem[]
@@ -533,7 +539,10 @@ export default function GlassFolder({
   image,
   files: initialFiles = SAMPLE_FILES,
   action = "add",
+  isAdmin = false,
+  onRequireAdmin,
   onAdd,
+  onRemove,
   onFilesChange,
   menu = [],
   labelPlacement = "bottom-left",
@@ -560,6 +569,12 @@ export default function GlassFolder({
   const nextId = React.useRef(initialFiles.length)
   const [dropped, setDropped] = React.useState<number | null>(null)
   const [bump, setBump] = React.useState(0)
+
+  React.useEffect(() => {
+    setFiles(initialFiles)
+    ids.current = initialFiles.map((_, i) => i)
+    nextId.current = initialFiles.length
+  }, [initialFiles])
 
   const [openState, setOpenState] = React.useState(defaultOpen)
   const open = openProp ?? openState
@@ -670,6 +685,10 @@ export default function GlassFolder({
   }, [menuOpen])
 
   const addFile = () => {
+    if (!isAdmin) {
+      onRequireAdmin?.()
+      return
+    }
     const made = onAdd?.(files)
     const file: FolderFile = made || { name: "Untitled " + (files.length + 1), meta: "Just now" }
     const next = [...files, file]
@@ -681,8 +700,41 @@ export default function GlassFolder({
     onFilesChange?.(next)
   }
 
+  const removeFile = (index: number) => {
+    if (!isAdmin) {
+      onRequireAdmin?.()
+      return
+    }
+    const removedFile = files[index]
+    const next = files.filter((_, i) => i !== index)
+    ids.current = ids.current.filter((_, i) => i !== index)
+    setFiles(next)
+    setBump((b) => b + 1)
+    onFilesChange?.(next)
+    onRemove?.(removedFile, index)
+  }
+
   const menuItems: FolderMenuItem[] = [
     { label: open ? "Close folder" : "Open folder", onSelect: () => setOpen(!open) },
+    ...(isAdmin
+      ? [
+          { label: "+ Add file (Admin)", onSelect: () => addFile() },
+          ...(files.length > 0
+            ? [
+                {
+                  label: "− Subtract top file (Admin)",
+                  danger: true,
+                  onSelect: () => removeFile(files.length - 1),
+                },
+              ]
+            : []),
+        ]
+      : [
+          {
+            label: "🔒 Admin Access (Unlock Add/Sub)",
+            onSelect: () => onRequireAdmin?.(),
+          },
+        ]),
     ...menu,
   ]
 
@@ -807,7 +859,26 @@ export default function GlassFolder({
                   )}
                   <span className="gf-sheet-head">
                     <span className="gf-sheet-name">{file.name}</span>
-                    {file.meta ? <span className="gf-sheet-meta">{file.meta}</span> : null}
+                    <span className="gf-sheet-actions">
+                      {file.meta ? <span className="gf-sheet-meta">{file.meta}</span> : null}
+                      {isAdmin ? (
+                        <button
+                          type="button"
+                          className="gf-sheet-remove"
+                          title="Subtract/Delete file (Admin only)"
+                          aria-label={"Remove " + file.name}
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            e.preventDefault()
+                            removeFile(start + v)
+                          }}
+                        >
+                          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                          </svg>
+                        </button>
+                      ) : null}
+                    </span>
                   </span>
                 </>
               )
@@ -827,13 +898,24 @@ export default function GlassFolder({
               return (
                 <div key={id} role="listitem" className="gf-sheet-slot">
                   {file.href ? (
-                    <a {...common} href={file.href} onClick={() => onFileSelect?.(file, start + v)}>
+                    <a {...common} href={file.href} target="_blank" rel="noopener noreferrer" onClick={() => onFileSelect?.(file, start + v)}>
                       {inner}
                     </a>
                   ) : (
-                    <button {...common} type="button" onClick={() => onFileSelect?.(file, start + v)}>
+                    <div
+                      {...common}
+                      role="button"
+                      tabIndex={open ? 0 : -1}
+                      onClick={() => onFileSelect?.(file, start + v)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault()
+                          onFileSelect?.(file, start + v)
+                        }
+                      }}
+                    >
                       {inner}
-                    </button>
+                    </div>
                   )}
                 </div>
               )
@@ -844,17 +926,40 @@ export default function GlassFolder({
             <button
               ref={keyRef}
               type="button"
-              className={"gf-key gf-key--" + action}
-              aria-label={action === "add" ? "Add a file to " + label : "More options for " + label}
+              className={"gf-key gf-key--" + action + (!isAdmin && action === "add" ? " gf-key--locked" : "")}
+              aria-label={
+                action === "add"
+                  ? isAdmin
+                    ? "Add a file to " + label
+                    : "Add file (Admin access required)"
+                  : "More options for " + label
+              }
               aria-haspopup={action === "more" ? "menu" : undefined}
               aria-expanded={action === "more" ? menuOpen : undefined}
               aria-controls={action === "more" ? "gf-menu-" + uid : undefined}
-              onClick={() => (action === "add" ? addFile() : setMenuOpen((m) => !m))}
+              onClick={() => {
+                if (action === "add") {
+                  if (!isAdmin) {
+                    onRequireAdmin?.()
+                  } else {
+                    addFile()
+                  }
+                } else {
+                  setMenuOpen((m) => !m)
+                }
+              }}
             >
               {action === "add" ? (
-                <svg key={bump} className="gf-glyph gf-glyph--plus" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 4.5v15M4.5 12h15" />
-                </svg>
+                isAdmin ? (
+                  <svg key={bump} className="gf-glyph gf-glyph--plus" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 4.5v15M4.5 12h15" />
+                  </svg>
+                ) : (
+                  <svg className="gf-glyph gf-glyph--lock" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  </svg>
+                )
               ) : (
                 <svg className="gf-glyph gf-glyph--more" viewBox="0 0 30 12" aria-hidden="true">
                   <rect x="1" y="1.5" width="8" height="9" rx="3.4" />
@@ -1065,10 +1170,39 @@ canvas.gf-sheet-art[data-ready] { opacity: 1; filter: none; }
   top: 11px;
   z-index: 1;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 10px;
   white-space: nowrap;
+}
+.gf-sheet-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+}
+.gf-sheet-remove {
+  all: unset;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: #ff5a36;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  transition: transform .15s ease, background .15s ease;
+  pointer-events: auto;
+}
+.gf-sheet-remove:hover {
+  background: #dc2626;
+  transform: scale(1.15);
+}
+.gf-sheet-remove:active {
+  transform: scale(0.92);
 }
 .gf-sheet-name {
   overflow: hidden;
@@ -1249,8 +1383,16 @@ canvas.gf-sheet-art[data-ready] { opacity: 1; filter: none; }
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22), 0 0 0 1px rgba(255, 255, 255, .1), 0 10px 18px -8px rgba(0, 0, 0, .6);
 }
 .gf-key--more[aria-expanded="true"] { transform: scale(.96); }
+.gf-key--locked {
+  opacity: 0.88;
+}
+.gf-key--locked:hover {
+  opacity: 1;
+  color: #ff5a36;
+}
 .gf-glyph { display: block; max-width: none; fill: none; stroke: currentColor; stroke-linecap: round; }
 .gf-glyph--plus { width: 26px; height: 26px; stroke-width: 1.6; animation: gf-turn .6s var(--gf-spring); }
+.gf-glyph--lock { width: 22px; height: 22px; }
 .gf-glyph--more { width: 30px; height: 12px; stroke-width: 1.7; }
 @keyframes gf-turn { from { rotate: -90deg; } to { rotate: 0deg; } }
 /* ---- menu ------------------------------------------------------------------- */
