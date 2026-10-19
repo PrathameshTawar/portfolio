@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Top brand header bar matching reference image */}
-      <div className="w-full bg-[#080c18]/90 backdrop-blur-md border-b border-[#182238] flex items-center justify-between px-4 sm:px-8 py-2">
+      <div className="w-full bg-[#09090b]/90 backdrop-blur-md border-b border-[#27272a] flex items-center justify-between px-4 sm:px-8 py-2">
         {/* Top-left electric blue curved badge */}
         <a
           href="#"
@@ -40,7 +40,7 @@ export default function Navbar() {
         </a>
 
         {/* Center floating capsule nav bar */}
-        <nav className="hidden lg:flex items-center gap-1.5 bg-[#0e1628]/90 border border-[#1e2a47] rounded-full px-3 py-1 shadow-lg shadow-black/40">
+        <nav className="hidden lg:flex items-center gap-1.5 bg-[#121215]/90 border border-[#27272a] rounded-full px-3 py-1 shadow-lg shadow-black/40">
           <span className="text-[11px] font-mono text-[#2f6bf6] font-bold px-2">01 <span className="text-muted-foreground/60">/ 07</span></span>
           {navLinks.map((link) => {
             const isActive = activeSection === link.id
@@ -78,7 +78,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1.5 rounded-lg bg-[#0e1628] border border-[#1e2a47] text-white"
+            className="p-1.5 rounded-lg bg-[#121215] border border-[#27272a] text-white"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -88,7 +88,7 @@ export default function Navbar() {
 
       {/* Mobile nav modal */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#080c18]/95 backdrop-blur-xl border-b border-[#182238] px-6 py-5 space-y-2">
+        <div className="lg:hidden bg-[#09090b]/95 backdrop-blur-xl border-b border-[#27272a] px-6 py-5 space-y-2">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -102,7 +102,7 @@ export default function Navbar() {
               {link.name}
             </a>
           ))}
-          <div className="pt-4 border-t border-[#182238] flex items-center justify-between">
+          <div className="pt-4 border-t border-[#27272a] flex items-center justify-between">
             <div className="flex items-center gap-3">
               <a href="https://github.com/PrathameshTawar" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-white">
                 <GithubIcon className="w-4 h-4" />
