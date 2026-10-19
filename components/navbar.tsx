@@ -29,19 +29,19 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Top brand header bar matching reference image */}
-      <div className="w-full bg-[#09090b]/90 backdrop-blur-md border-b border-[#27272a] flex items-center justify-between px-4 sm:px-8 py-2">
-        {/* Top-left electric blue curved badge */}
+      {/* Top brand header bar matching hyper-minimalist design */}
+      <div className="w-full bg-[#050505]/90 backdrop-blur-md border-b border-[#1F1F1F] flex items-center justify-between px-4 sm:px-8 py-2">
+        {/* Top-left primary accent badge */}
         <a
           href="#"
-          className="inline-flex items-center px-4 py-1.5 rounded-br-2xl rounded-tl-lg bg-[#2f6bf6] text-white font-black text-sm tracking-widest shadow-md shadow-[#2f6bf6]/30 hover:brightness-110 transition-all"
+          className="inline-flex items-center px-4 py-1.5 rounded-br-2xl rounded-tl-lg bg-white text-[#050505] font-black text-sm tracking-widest shadow-sm hover:bg-[#EDEDED] transition-all"
         >
           <span>PORTFOLIO®</span>
         </a>
 
         {/* Center floating capsule nav bar */}
-        <nav className="hidden lg:flex items-center gap-1.5 bg-[#121215]/90 border border-[#27272a] rounded-full px-3 py-1 shadow-lg shadow-black/40">
-          <span className="text-[11px] font-mono text-[#2f6bf6] font-bold px-2">01 <span className="text-muted-foreground/60">/ 07</span></span>
+        <nav className="hidden lg:flex items-center gap-1.5 bg-[#0A0A0A]/90 border border-[#1F1F1F] rounded-full px-3 py-1 shadow-lg shadow-black/60">
+          <span className="text-[11px] font-mono text-[#38BDF8] font-bold px-2">01 <span className="text-[#737373]">/ 07</span></span>
           {navLinks.map((link) => {
             const isActive = activeSection === link.id
             return (
@@ -51,26 +51,26 @@ export default function Navbar() {
                 onClick={() => setActiveSection(link.id)}
                 className={`px-3 py-1 text-xs font-mono tracking-wider font-semibold rounded-full transition-all ${
                   isActive
-                    ? "bg-[#2f6bf6] text-white shadow-sm shadow-[#2f6bf6]/40"
-                    : "text-muted-foreground hover:text-white hover:bg-white/5"
+                    ? "bg-white text-[#050505] shadow-sm"
+                    : "text-[#737373] hover:text-[#EDEDED] hover:bg-white/5"
                 }`}
               >
                 {link.name}
               </a>
             )
           })}
-          <div className="pl-1 text-muted-foreground/80 hover:text-white cursor-pointer p-1">
+          <div className="pl-1 text-[#737373] hover:text-[#EDEDED] cursor-pointer p-1">
             <Moon className="w-3.5 h-3.5" />
           </div>
         </nav>
 
         {/* Top-right engineering tags */}
-        <div className="hidden sm:flex items-center gap-3 text-xs font-mono text-muted-foreground">
-          <span className="hover:text-[#2f6bf6] transition-colors cursor-default">AI ORCHESTRATION</span>
-          <span className="text-border">|</span>
-          <span className="hover:text-[#22c55e] transition-colors cursor-default">DISTRIBUTED SYSTEMS</span>
-          <span className="text-border">|</span>
-          <span className="hover:text-[#ff5a36] transition-colors cursor-default">FULL-STACK</span>
+        <div className="hidden sm:flex items-center gap-3 text-xs font-mono text-[#737373]">
+          <span className="hover:text-[#38BDF8] transition-colors cursor-default">AI ORCHESTRATION</span>
+          <span className="text-[#1F1F1F]">|</span>
+          <span className="hover:text-[#EDEDED] transition-colors cursor-default">DISTRIBUTED SYSTEMS</span>
+          <span className="text-[#1F1F1F]">|</span>
+          <span className="hover:text-[#38BDF8] transition-colors cursor-default">FULL-STACK</span>
         </div>
 
         {/* Mobile menu button */}
@@ -78,7 +78,7 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-1.5 rounded-lg bg-[#121215] border border-[#27272a] text-white"
+            className="p-1.5 rounded-lg bg-[#0A0A0A] border border-[#1F1F1F] text-[#EDEDED]"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -88,7 +88,7 @@ export default function Navbar() {
 
       {/* Mobile nav modal */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#09090b]/95 backdrop-blur-xl border-b border-[#27272a] px-6 py-5 space-y-2">
+        <div className="lg:hidden bg-[#050505]/95 backdrop-blur-xl border-b border-[#1F1F1F] px-6 py-5 space-y-2">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -97,18 +97,18 @@ export default function Navbar() {
                 setActiveSection(link.id)
                 setMobileMenuOpen(false)
               }}
-              className="block px-3 py-2 text-sm font-mono font-medium text-muted-foreground hover:text-white hover:bg-[#2f6bf6]/10 rounded-lg"
+              className="block px-3 py-2 text-sm font-mono font-medium text-[#737373] hover:text-[#EDEDED] hover:bg-white/5 rounded-lg"
             >
               {link.name}
             </a>
           ))}
-          <div className="pt-4 border-t border-[#27272a] flex items-center justify-between">
+          <div className="pt-4 border-t border-[#1F1F1F] flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <a href="https://github.com/PrathameshTawar" target="_blank" rel="noopener noreferrer" className="p-2 text-muted-foreground hover:text-white">
+              <a href="https://github.com/PrathameshTawar" target="_blank" rel="noopener noreferrer" className="p-2 text-[#737373] hover:text-[#EDEDED]">
                 <GithubIcon className="w-4 h-4" />
               </a>
-              <a href="mailto:tawareprathamesh1010@gmail.com" className="p-2 text-muted-foreground hover:text-white">
-                <span className="text-xs font-mono text-[#2f6bf6]">tawareprathamesh1010@gmail.com</span>
+              <a href="mailto:tawareprathamesh1010@gmail.com" className="p-2 text-[#737373] hover:text-[#EDEDED]">
+                <span className="text-xs font-mono text-[#38BDF8]">tawareprathamesh1010@gmail.com</span>
               </a>
             </div>
           </div>
