@@ -1,4 +1,4 @@
-# Prathamesh Tawar — AI Engineer & Full-Stack Developer Portfolio
+# Prathamesh Tawar | AI Engineer & Full-Stack Developer Portfolio
 
 A living proof-of-work platform showcasing low-latency LLM orchestration pipelines, distributed agent swarms, patent-backed memory synchronization protocols, and production full-stack systems.
 
