@@ -1,4 +1,4 @@
-# Prathamesh Tawar | AI Engineer & Full-Stack Developer Portfolio
+# Prathamesh Taware | AI Engineer & Full-Stack Developer Portfolio
 
 A living proof-of-work platform showcasing low-latency LLM orchestration pipelines, distributed agent swarms, patent-backed memory synchronization protocols, and production full-stack systems.
 
@@ -91,4 +91,4 @@ npm run start
 
 - **Email:** [tawareprathamesh1010@gmail.com](mailto:tawareprathamesh1010@gmail.com)
 - **GitHub:** [github.com/PrathameshTawar](https://github.com/PrathameshTawar)
-- **LinkedIn:** [Prathamesh Tawar](https://linkedin.com)
+- **LinkedIn:** [Prathamesh Taware](https://linkedin.com)
