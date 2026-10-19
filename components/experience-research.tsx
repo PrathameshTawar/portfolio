@@ -18,7 +18,7 @@ const TIMELINE: ExperienceItem[] = [
     type: "patent",
     title: "Inventor: Cross-Vendor LLM Memory Synchronization Protocol",
     organization: "Intellectual Property Office Filing",
-    period: "2024 — Present",
+    period: "2024 - Present",
     bullets: [
       "Engineered a vendor-agnostic episodic attention synchronization layer that normalizes memory representations between proprietary APIs (Claude 3.5, GPT-4o) and open-weights models (Llama 3).",
       "Achieved 99.4% context recall consistency with zero catastrophic forgetting across multi-turn agent handoffs.",
