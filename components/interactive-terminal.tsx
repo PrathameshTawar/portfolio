@@ -103,34 +103,35 @@ export default function InteractiveTerminal() {
 
   return (
     <section id="terminal" className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-      <div className="rounded-2xl bg-black/90 border border-border shadow-2xl overflow-hidden backdrop-blur-xl">
-        {/* Window title bar */}
-        <div className="flex items-center justify-between px-4 py-3 bg-secondary/40 border-b border-border/80">
+      <div className="rounded-3xl bg-[#080c18] border border-[#182238] shadow-2xl overflow-hidden backdrop-blur-xl">
+        {/* Window title bar matching reference colors */}
+        <div className="flex items-center justify-between px-5 py-3.5 bg-[#0c1222] border-b border-[#182238]">
           <div className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block" />
-            <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
-            <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
-            <span className="ml-2 font-mono text-xs text-muted-foreground flex items-center gap-1.5">
-              <TerminalIcon className="w-3.5 h-3.5" />
-              <span>prathamesh-tawar-orchestration-cli</span>
+            <span className="w-3 h-3 rounded-full bg-[#ff5a36] inline-block" />
+            <span className="w-3 h-3 rounded-full bg-[#facc15] inline-block" />
+            <span className="w-3 h-3 rounded-full bg-[#22c55e] inline-block" />
+            <span className="ml-3 font-mono text-xs text-white/80 flex items-center gap-2">
+              <TerminalIcon className="w-3.5 h-3.5 text-[#2f6bf6]" />
+              <span className="font-semibold">orchestration-cli</span>
+              <span className="text-[#22c55e] text-[10px] px-1.5 py-0.2 rounded bg-[#22c55e]/10 border border-[#22c55e]/20">07 / 07</span>
             </span>
           </div>
-          <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest hidden sm:inline-block">
-            BASH · UTF-8
+          <span className="font-mono text-[11px] text-muted-foreground uppercase tracking-widest hidden sm:inline-block">
+            UTF-8 · STREAMING AST
           </span>
         </div>
 
         {/* Terminal output screen */}
-        <div className="p-4 sm:p-6 font-mono text-xs sm:text-sm h-72 sm:h-80 overflow-y-auto space-y-2 text-foreground/90 selection:bg-primary/30">
+        <div className="p-5 sm:p-7 font-mono text-xs sm:text-sm h-72 sm:h-80 overflow-y-auto space-y-2 text-foreground/90 selection:bg-[#2f6bf6]/30">
           {history.map((entry, index) => (
             <div
               key={index}
               className={`${
                 entry.type === "input"
-                  ? "text-sky-400 font-semibold"
+                  ? "text-[#2f6bf6] font-semibold"
                   : entry.type === "system"
-                  ? "text-muted-foreground italic"
-                  : "text-foreground/80 leading-relaxed"
+                  ? "text-[#22c55e] italic opacity-85"
+                  : "text-slate-200 leading-relaxed"
               }`}
             >
               {entry.text}
@@ -142,9 +143,9 @@ export default function InteractiveTerminal() {
         {/* Terminal input form */}
         <form
           onSubmit={handleCommand}
-          className="flex items-center gap-2 px-4 py-3 bg-secondary/30 border-t border-border/80"
+          className="flex items-center gap-2 px-5 py-3.5 bg-[#0c1222] border-t border-[#182238]"
         >
-          <span className="font-mono text-xs text-emerald-400 font-semibold flex items-center gap-1">
+          <span className="font-mono text-xs text-[#22c55e] font-semibold flex items-center gap-1">
             <span>visitor@tawar:~$</span>
           </span>
           <input
@@ -153,12 +154,12 @@ export default function InteractiveTerminal() {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type 'help', 'patent', 'projects', or 'skills'..."
             aria-label="Terminal command input"
-            className="flex-1 bg-transparent font-mono text-xs sm:text-sm text-foreground focus:outline-none placeholder:text-muted-foreground/60"
+            className="flex-1 bg-transparent font-mono text-xs sm:text-sm text-white focus:outline-none placeholder:text-muted-foreground/60"
           />
           <button
             type="submit"
             aria-label="Send command"
-            className="p-1.5 rounded-md bg-primary/20 text-primary hover:bg-primary/30 transition-colors"
+            className="p-1.5 rounded-lg bg-[#2f6bf6] text-white hover:brightness-110 transition-all"
           >
             <CornerDownLeft className="w-3.5 h-3.5" />
           </button>
