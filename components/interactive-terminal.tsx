@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useRef, useEffect } from "react"
-import { Terminal as TerminalIcon, Sparkles, Send, CornerDownLeft } from "lucide-react"
+import { Terminal as TerminalIcon, CornerDownLeft } from "lucide-react"
 
 interface HistoryEntry {
   type: "input" | "output" | "system"
@@ -10,48 +10,50 @@ interface HistoryEntry {
 
 const COMMAND_OUTPUTS: Record<string, string[]> = {
   help: [
-    "Available terminal commands:",
-    "  • about     - High-level engineering profile",
-    "  • projects  - Core systems & architectural metrics",
-    "  • patent    - Cross-vendor LLM memory sync details",
-    "  • skills    - Primary AI & full-stack technology stack",
-    "  • metrics   - Quantitative performance highlights",
-    "  • contact   - Direct email & communication channels",
-    "  • clear     - Clear terminal buffer",
+    "Commands available:",
+    "  • whoami     - Quick bio and background",
+    "  • projects   - Production systems & links",
+    "  • patent     - LLM cross-vendor memory sync details",
+    "  • skills     - Languages & infrastructure stack",
+    "  • stats      - Codeforces & benchmark metrics",
+    "  • contact    - Email and social links",
+    "  • clear      - Clear terminal output",
   ],
-  about: [
-    "Prathamesh Tawar | AI Engineer & Full-Stack Developer",
-    "Specialization: Low-latency LLM orchestration pipelines, multi-agent frameworks, and high-concurrency systems.",
-    "Credentials: Codeforces Expert (1650+), Patent Inventor, Indic RAG Researcher.",
+  whoami: [
+    "Prathamesh Tawar — AI Engineer & Full-Stack Developer",
+    "Based in India. Focus: Low-latency agent pipelines, vector databases, and high-concurrency web systems.",
+    "Competitive programming: Codeforces Expert (1650+).",
   ],
   projects: [
-    "[1] DARKSEID: LangGraph Multi-Agent Runtime (p95 -35% latency)",
-    "[2] GML Memory Protocol: Cross-Vendor LLM Context Sync (Patent Pending)",
-    "[3] Hive Mind AI: Distributed Swarm Diagnostics (Rank 11 Build & Grow AI)",
-    "[4] Indic-Language RAG: Low-Resource Dense Retrieval (+28% MRR, 500+ docs)",
+    "1. DARKSEID (github.com/PrathameshTawar) - LangGraph agent runtime with Redis semantic cache (-35% p95 latency)",
+    "2. GML Memory Protocol - Patent-filed memory sync across Claude, GPT-4, and Llama (99.4% recall)",
+    "3. Hive Mind AI - Distributed multi-agent diagnostics (Rank 11 / 800+ teams in Build & Grow AI 2.0)",
+    "4. Indic-Language RAG - Cross-lingual retrieval pipeline for Indic documents (+28% MRR over baseline)",
   ],
   patent: [
     "Patent Title: Cross-Vendor LLM Memory Synchronization Protocol",
-    "Key Innovations:",
-    "  • Normalizes disparate model attention states (Claude, GPT-4, Llama)",
-    "  • Eliminates catastrophic memory drift across multi-turn handoffs",
-    "  • Benchmark: 99.4% context recall parity, -45% ingestion latency",
+    "Problem: Vendor lock-in & catastrophic context loss when switching between model providers.",
+    "Solution: Protobuf-serialized episodic memory embeddings that normalize context across OpenAI, Anthropic, and open-weights models.",
+    "Result: 99.4% context recall consistency with 45% faster cold ingestion.",
   ],
   skills: [
-    "AI & LLMs: LangGraph, RAG, Bedrock, Qdrant, Whisper STT, Kestra, pgvector",
-    "Full-Stack: FastAPI, Next.js, React 19, TypeScript, Docker, Redis, Tailwind",
-    "Core DSA: Codeforces Expert (1650+), 300+ LeetCode, Graph & DP Algorithms",
+    "Languages: Python, TypeScript, C++, SQL",
+    "AI / ML: LangGraph, RAG, AWS Bedrock, Qdrant, FAISS, Whisper, Hugging Face",
+    "Web / Cloud: FastAPI, Next.js, React, Node.js, Docker, Redis, PostgreSQL, AWS",
+    "CS Core: Data Structures, Graph Algorithms, Dynamic Programming, System Design",
   ],
-  metrics: [
-    "• p95 Latency Reduction: -35% via LangGraph + Redis semantic caching",
-    "• Context Recall Parity: 99.4% cross-vendor fidelity",
-    "• Hackathon Ranking: #11 out of 800+ national builder teams",
-    "• Competitive CP: 1650+ Codeforces Rating, 300+ Solved Algorithms",
+  stats: [
+    "• Codeforces: Expert (Peak 1650+)",
+    "• LeetCode: 300+ Solved (Focus on DP, Graph Theory, Backtracking)",
+    "• Hackathons: Rank 11 in Build & Grow AI 2.0 (800+ teams), Finalist in AI for Bharat",
   ],
   contact: [
     "Email: tawareprathamesh1010@gmail.com",
     "GitHub: https://github.com/PrathameshTawar",
-    "Status: Open for AI Engineering & Full-Stack opportunities",
+    "LinkedIn: https://linkedin.com",
+  ],
+  sudo: [
+    "Nice try, but you're not in the sudoers file. This incident will be reported.",
   ],
 }
 
@@ -59,11 +61,11 @@ export default function InteractiveTerminal() {
   const [history, setHistory] = useState<HistoryEntry[]>([
     {
       type: "system",
-      text: "[SYSTEM] Antigravity Agent Runtime [v2.4.0]: Initialized session for visitor@portfolio",
+      text: "Last login: Sun Oct 18 2026 22:42:10 on ttys004",
     },
     {
       type: "system",
-      text: "Type 'help' to inspect command list or 'projects' to inspect systems.",
+      text: "Type 'help' to see what you can run, or 'whoami' to learn about me.",
     },
   ])
   const [input, setInput] = useState("")
@@ -84,7 +86,7 @@ export default function InteractiveTerminal() {
       return
     }
 
-    const nextHistory: HistoryEntry[] = [...history, { type: "input", text: `visitor@prathamesh:~$ ${input}` }]
+    const nextHistory: HistoryEntry[] = [...history, { type: "input", text: `visitor@tawar-box:~$ ${input}` }]
 
     if (trimmed in COMMAND_OUTPUTS) {
       COMMAND_OUTPUTS[trimmed].forEach((line) => {
@@ -93,7 +95,7 @@ export default function InteractiveTerminal() {
     } else {
       nextHistory.push({
         type: "output",
-        text: `Command not found: '${trimmed}'. Type 'help' for recognized commands.`,
+        text: `zsh: command not found: ${trimmed}. Type 'help' for available commands.`,
       })
     }
 
@@ -103,26 +105,25 @@ export default function InteractiveTerminal() {
 
   return (
     <section id="terminal" className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-      <div className="rounded-3xl bg-[#080c18] border border-[#182238] shadow-2xl overflow-hidden backdrop-blur-xl">
-        {/* Window title bar matching reference colors */}
-        <div className="flex items-center justify-between px-5 py-3.5 bg-[#0c1222] border-b border-[#182238]">
+      <div className="rounded-2xl bg-[#070b14] border border-[#182238] shadow-2xl overflow-hidden">
+        {/* Terminal Title Bar */}
+        <div className="flex items-center justify-between px-4 py-3 bg-[#0c1222] border-b border-[#182238]">
           <div className="flex items-center gap-2">
             <span className="w-3 h-3 rounded-full bg-[#ff5a36] inline-block" />
             <span className="w-3 h-3 rounded-full bg-[#facc15] inline-block" />
             <span className="w-3 h-3 rounded-full bg-[#22c55e] inline-block" />
-            <span className="ml-3 font-mono text-xs text-white/80 flex items-center gap-2">
+            <span className="ml-2 font-mono text-xs text-slate-300 flex items-center gap-1.5">
               <TerminalIcon className="w-3.5 h-3.5 text-[#2f6bf6]" />
-              <span className="font-semibold">orchestration-cli</span>
-              <span className="text-[#22c55e] text-[10px] px-1.5 py-0.2 rounded bg-[#22c55e]/10 border border-[#22c55e]/20">07 / 07</span>
+              <span>prathamesh@workstation:~ (zsh)</span>
             </span>
           </div>
-          <span className="font-mono text-[11px] text-muted-foreground uppercase tracking-widest hidden sm:inline-block">
-            UTF-8 · STREAMING AST
+          <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest hidden sm:inline-block">
+            UTF-8 · ZSH
           </span>
         </div>
 
-        {/* Terminal output screen */}
-        <div className="p-5 sm:p-7 font-mono text-xs sm:text-sm h-72 sm:h-80 overflow-y-auto space-y-2 text-foreground/90 selection:bg-[#2f6bf6]/30">
+        {/* Output Screen */}
+        <div className="p-4 sm:p-6 font-mono text-xs sm:text-sm h-72 sm:h-80 overflow-y-auto space-y-2 text-slate-200 selection:bg-[#2f6bf6]/30">
           {history.map((entry, index) => (
             <div
               key={index}
@@ -130,7 +131,7 @@ export default function InteractiveTerminal() {
                 entry.type === "input"
                   ? "text-[#2f6bf6] font-semibold"
                   : entry.type === "system"
-                  ? "text-[#22c55e] italic opacity-85"
+                  ? "text-slate-400"
                   : "text-slate-200 leading-relaxed"
               }`}
             >
@@ -140,26 +141,26 @@ export default function InteractiveTerminal() {
           <div ref={bottomRef} />
         </div>
 
-        {/* Terminal input form */}
+        {/* Input Form */}
         <form
           onSubmit={handleCommand}
-          className="flex items-center gap-2 px-5 py-3.5 bg-[#0c1222] border-t border-[#182238]"
+          className="flex items-center gap-2 px-4 py-3 bg-[#0c1222] border-t border-[#182238]"
         >
           <span className="font-mono text-xs text-[#22c55e] font-semibold flex items-center gap-1">
-            <span>visitor@tawar:~$</span>
+            <span>visitor@tawar-box:~$</span>
           </span>
           <input
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Type 'help', 'patent', 'projects', or 'skills'..."
+            placeholder="Type 'help', 'whoami', 'projects', or 'skills'..."
             aria-label="Terminal command input"
-            className="flex-1 bg-transparent font-mono text-xs sm:text-sm text-white focus:outline-none placeholder:text-muted-foreground/60"
+            className="flex-1 bg-transparent font-mono text-xs sm:text-sm text-white focus:outline-none placeholder:text-muted-foreground/50"
           />
           <button
             type="submit"
             aria-label="Send command"
-            className="p-1.5 rounded-lg bg-[#2f6bf6] text-white hover:brightness-110 transition-all"
+            className="p-1.5 rounded-md bg-[#2f6bf6] text-white hover:brightness-110 transition-all"
           >
             <CornerDownLeft className="w-3.5 h-3.5" />
           </button>
