@@ -20,10 +20,13 @@ export const metadata: Metadata = {
   authors: [{ name: "Prathamesh Tawar", url: "https://github.com/PrathameshTawar" }],
   creator: "Prathamesh Tawar",
   openGraph: {
-    title: "Prathamesh Tawar — AI Engineer & Full-Stack Developer",
+    title: "Prathamesh Tawar | AI Engineer & Full-Stack Developer",
     description: "Building low-latency LLM orchestration pipelines and high-performance full-stack systems.",
     type: "website",
     url: "https://github.com/PrathameshTawar/portfolio",
+  },
+  icons: {
+    icon: "/icon.svg",
   },
 };
 
