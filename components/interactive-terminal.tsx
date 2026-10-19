@@ -105,34 +105,34 @@ export default function InteractiveTerminal() {
 
   return (
     <section id="terminal" className="py-20 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-      <div className="rounded-2xl bg-[#09090b] border border-[#27272a] shadow-2xl overflow-hidden">
+      <div className="rounded-2xl bg-[#050505] border border-[#1F1F1F] shadow-2xl overflow-hidden hover:border-[#38BDF8]/40 hover:shadow-[0_0_30px_rgba(56,189,248,0.06)] transition-all duration-300">
         {/* Terminal Title Bar */}
-        <div className="flex items-center justify-between px-4 py-3 bg-[#121215] border-b border-[#27272a]">
+        <div className="flex items-center justify-between px-4 py-3 bg-[#0A0A0A] border-b border-[#1F1F1F]">
           <div className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded-full bg-[#ff5a36] inline-block" />
-            <span className="w-3 h-3 rounded-full bg-[#facc15] inline-block" />
-            <span className="w-3 h-3 rounded-full bg-[#22c55e] inline-block" />
-            <span className="ml-2 font-mono text-xs text-slate-300 flex items-center gap-1.5">
-              <TerminalIcon className="w-3.5 h-3.5 text-[#2f6bf6]" />
+            <span className="w-3 h-3 rounded-full bg-[#1F1F1F] border border-white/10 inline-block" />
+            <span className="w-3 h-3 rounded-full bg-[#1F1F1F] border border-white/10 inline-block" />
+            <span className="w-3 h-3 rounded-full bg-[#1F1F1F] border border-white/10 inline-block" />
+            <span className="ml-2 font-mono text-xs text-[#EDEDED] flex items-center gap-1.5">
+              <TerminalIcon className="w-3.5 h-3.5 text-[#38BDF8]" />
               <span>prathamesh@workstation:~ (zsh)</span>
             </span>
           </div>
-          <span className="font-mono text-[10px] text-muted-foreground uppercase tracking-widest hidden sm:inline-block">
+          <span className="font-mono text-[10px] text-[#737373] uppercase tracking-widest hidden sm:inline-block">
             UTF-8 · ZSH
           </span>
         </div>
 
         {/* Output Screen */}
-        <div className="p-4 sm:p-6 font-mono text-xs sm:text-sm h-72 sm:h-80 overflow-y-auto space-y-2 text-slate-200 selection:bg-[#2f6bf6]/30">
+        <div className="p-4 sm:p-6 font-mono text-xs sm:text-sm h-72 sm:h-80 overflow-y-auto space-y-2 text-[#EDEDED] selection:bg-[#38BDF8]/30">
           {history.map((entry, index) => (
             <div
               key={index}
               className={`${
                 entry.type === "input"
-                  ? "text-[#2f6bf6] font-semibold"
+                  ? "text-[#38BDF8] font-semibold"
                   : entry.type === "system"
-                  ? "text-slate-400"
-                  : "text-slate-200 leading-relaxed"
+                  ? "text-[#737373]"
+                  : "text-[#EDEDED] leading-relaxed"
               }`}
             >
               {entry.text}
@@ -144,9 +144,9 @@ export default function InteractiveTerminal() {
         {/* Input Form */}
         <form
           onSubmit={handleCommand}
-          className="flex items-center gap-2 px-4 py-3 bg-[#121215] border-t border-[#27272a]"
+          className="flex items-center gap-2 px-4 py-3 bg-[#0A0A0A] border-t border-[#1F1F1F]"
         >
-          <span className="font-mono text-xs text-[#22c55e] font-semibold flex items-center gap-1">
+          <span className="font-mono text-xs text-[#38BDF8] font-semibold flex items-center gap-1">
             <span>visitor@tawar-box:~$</span>
           </span>
           <input
@@ -155,12 +155,12 @@ export default function InteractiveTerminal() {
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type 'help', 'whoami', 'projects', or 'skills'..."
             aria-label="Terminal command input"
-            className="flex-1 bg-transparent font-mono text-xs sm:text-sm text-white focus:outline-none placeholder:text-muted-foreground/50"
+            className="flex-1 bg-transparent font-mono text-xs sm:text-sm text-[#EDEDED] focus:outline-none placeholder:text-[#737373]"
           />
           <button
             type="submit"
             aria-label="Send command"
-            className="p-1.5 rounded-md bg-[#2f6bf6] text-white hover:brightness-110 transition-all"
+            className="p-1.5 rounded-md bg-[#38BDF8] text-[#050505] hover:bg-[#0284c7] transition-all cursor-pointer font-bold"
           >
             <CornerDownLeft className="w-3.5 h-3.5" />
           </button>
