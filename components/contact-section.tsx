@@ -26,15 +26,15 @@ export default function ContactSection() {
         <div className="relative text-center max-w-2xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#22c55e]/15 text-[#22c55e] border border-[#22c55e]/30 text-xs font-mono font-medium mb-4">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Direct Inquiries · Contact</span>
+            <span>Get in Touch · 07 / 07</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white mb-4">
-            Let&apos;s Build High-Impact Systems
+            Let&apos;s Build Something
           </h2>
 
-          <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-8 font-mono">
-            Whether you&apos;re looking to architect low-latency AI agent pipelines, scale resilient full-stack platforms, or discuss cross-vendor LLM memory architectures, my inbox is open.
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
+            Have a project in mind, an engineering role to fill, or want to discuss multi-agent systems and memory sync? Drop me an email or find me on GitHub.
           </p>
 
           {/* Email action card */}
