@@ -168,7 +168,7 @@ export default function GlassFolderShowcase() {
   }
 
   return (
-    <section id="proof-of-work" className="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#080c18]">
+    <section id="proof-of-work" className="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#09090b]">
       {/* Background ambient lighting */}
       <div
         aria-hidden="true"
@@ -355,7 +355,7 @@ export default function GlassFolderShowcase() {
       {showAuthModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
           <div
-            className="relative w-full max-w-md bg-[#0d1222] border border-[#2f6bf6]/30 rounded-2xl p-6 shadow-2xl shadow-black/80"
+            className="relative w-full max-w-md bg-[#121215] border border-[#27272a] rounded-2xl p-6 shadow-2xl shadow-black/80"
             role="dialog"
             aria-modal="true"
             aria-labelledby="admin-auth-title"
@@ -462,7 +462,7 @@ export default function GlassFolderShowcase() {
       {showAddModal && isAdmin && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
           <div
-            className="relative w-full max-w-lg bg-[#0d1222] border border-[#22c55e]/30 rounded-2xl p-6 shadow-2xl shadow-black/80"
+            className="relative w-full max-w-lg bg-[#121215] border border-[#27272a] rounded-2xl p-6 shadow-2xl shadow-black/80"
             role="dialog"
             aria-modal="true"
             aria-labelledby="add-artifact-title"
@@ -560,7 +560,7 @@ export default function GlassFolderShowcase() {
                 <select
                   value={newArt}
                   onChange={(e) => setNewArt(e.target.value as ArtPreset)}
-                  className="w-full px-3.5 py-2 rounded-xl bg-[#080c18] border border-white/15 focus:border-[#22c55e] focus:outline-none text-white font-mono text-sm cursor-pointer"
+                  className="w-full px-3.5 py-2 rounded-xl bg-[#121215] border border-[#27272a] focus:border-[#22c55e] focus:outline-none text-white font-mono text-sm cursor-pointer"
                 >
                   <option value="aurora">Aurora (Steel & Blush)</option>
                   <option value="ember">Ember (Obsidian & Red Fire)</option>
