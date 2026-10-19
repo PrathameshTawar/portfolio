@@ -56,7 +56,7 @@ const TIMELINE: ExperienceItem[] = [
 export default function ExperienceResearch() {
   return (
     <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#182238]">
+      <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-6 border-b border-[#27272a]">
         <div>
           <div className="inline-flex items-center gap-2 text-[#2f6bf6] font-mono text-xs uppercase tracking-wider mb-2">
             <Briefcase className="w-4 h-4" />
@@ -71,7 +71,7 @@ export default function ExperienceResearch() {
         </p>
       </div>
 
-      <div className="relative border-l-2 border-[#182238] ml-4 sm:ml-6 space-y-12">
+      <div className="relative border-l-2 border-[#27272a] ml-4 sm:ml-6 space-y-12">
         {TIMELINE.map((item, index) => {
           const isPatent = item.type === "patent"
           const isResearch = item.type === "research"
@@ -98,7 +98,7 @@ export default function ExperienceResearch() {
               </div>
 
               {/* Content card */}
-              <div className="p-6 sm:p-7 rounded-3xl bg-[#0c1222] border border-[#182238] group-hover:border-[#2f6bf6]/50 transition-colors shadow-sm">
+              <div className="p-6 sm:p-7 rounded-3xl bg-[#121215] border border-[#27272a] group-hover:border-[#2f6bf6]/50 transition-colors shadow-sm">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                   <h3 className="text-xl font-bold text-white group-hover:text-[#2f6bf6] transition-colors">
                     {item.title}
@@ -130,11 +130,11 @@ export default function ExperienceResearch() {
                   ))}
                 </ul>
 
-                <div className="flex flex-wrap gap-2 pt-3 border-t border-[#182238]">
+                <div className="flex flex-wrap gap-2 pt-3 border-t border-[#27272a]">
                   {item.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs px-2.5 py-0.5 rounded-md bg-[#121a2e] text-slate-300 font-mono border border-[#1e2a47]"
+                      className="text-xs px-2.5 py-0.5 rounded-md bg-[#18181b] text-slate-300 font-mono border border-[#27272a]"
                     >
                       {tag}
                     </span>
