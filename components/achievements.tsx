@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { Trophy, Code, Target, Award, Star, Flame } from "lucide-react"
+import { Trophy, Code, Award, Flame } from "lucide-react"
 
 interface Achievement {
   title: string
@@ -18,7 +18,7 @@ const ACHIEVEMENTS: Achievement[] = [
     subtitle: "Competitive Programming",
     metric: "1650+",
     metricColor: "text-[#facc15]",
-    description: "Achieved top global tier rank demonstrating mastery over graph theory, dynamic programming, and combinatorics under extreme time constraints.",
+    description: "Ranked in the top competitive programming tier globally. Contest problem-solving focused on graphs, dynamic programming, and combinatorics.",
     icon: <Trophy className="w-5 h-5 text-[#facc15]" />,
   },
   {
@@ -26,23 +26,23 @@ const ACHIEVEMENTS: Achievement[] = [
     subtitle: "National Hackathon",
     metric: "Rank 11",
     metricColor: "text-[#ff5a36]",
-    description: "Secured Rank 11 out of 800+ national builder teams for Hive Mind AI, an autonomous multi-agent root cause analysis system.",
+    description: "Finished 11th out of 800+ builder teams nationwide with Hive Mind AI, our distributed multi-agent root cause analysis engine.",
     icon: <Award className="w-5 h-5 text-[#ff5a36]" />,
   },
   {
     title: "AI for Bharat Hackathon",
-    subtitle: "Finalist & Contributor",
+    subtitle: "Finalist & Project Builder",
     metric: "Finalist",
     metricColor: "text-[#22c55e]",
-    description: "Engineered accessible vernacular voice interfaces leveraging localized Whisper STT models and Indic embeddings.",
+    description: "Selected as a national finalist for building vernacular voice interfaces combining local Whisper speech-to-text with Indic embeddings.",
     icon: <Flame className="w-5 h-5 text-[#22c55e]" />,
   },
   {
-    title: "Algorithmic Problem Solving",
+    title: "Algorithmic Problems",
     subtitle: "LeetCode & Platforms",
     metric: "300+",
     metricColor: "text-[#2f6bf6]",
-    description: "Maintained consistent high-difficulty problem solutions covering trees, tries, backtracking, and mathematical proofs.",
+    description: "Over 300 problems solved across LeetCode and Codeforces, with a strong focus on advanced graph algorithms, trees, and dynamic programming.",
     icon: <Code className="w-5 h-5 text-[#2f6bf6]" />,
   },
 ]
@@ -54,14 +54,14 @@ export default function Achievements() {
         <div>
           <div className="inline-flex items-center gap-2 text-[#2f6bf6] font-mono text-xs uppercase tracking-wider mb-2">
             <Trophy className="w-4 h-4" />
-            <span>Problem-Solving Signals · 06 / 07</span>
+            <span>Competitive Track Record · 06 / 07</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
-            Achievements & Competitive Honors
+            Honors & Problem Solving
           </h2>
         </div>
         <p className="mt-3 md:mt-0 text-muted-foreground text-sm max-w-md font-mono">
-          Rigorous analytical capability, algorithmic speed, and execution under pressure.
+          Concrete benchmarks from timed programming contests and national hackathons.
         </p>
       </div>
 
@@ -87,7 +87,7 @@ export default function Achievements() {
               <p className="text-xs font-mono text-muted-foreground mb-3">
                 {item.subtitle}
               </p>
-              <p className="text-xs text-muted-foreground leading-relaxed">
+              <p className="text-xs text-slate-300 leading-relaxed">
                 {item.description}
               </p>
             </div>
